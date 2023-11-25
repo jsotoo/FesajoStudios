@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = FesajoStudios.Client
+build_property.RootNamespace = FesajoStudios.Client
+build_property.ProjectDir = C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ModalSeatComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kYWxTZWF0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MovieEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVzQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVzUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/SeatsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2VhdHNQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ0NyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ0VkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Auth/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Auth/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/BookingsUserList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxCb29raW5nc1VzZXJMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/TheathersUserDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxUaGVhdGhlcnNVc2VyRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MoviesConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vdmllc0NvbmZpZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/ShowingConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNob3dpbmdDb25maWcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/TheatherConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRoZWF0aGVyQ29uZmlnLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zhgg6m1r2q
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-velbsitj0a

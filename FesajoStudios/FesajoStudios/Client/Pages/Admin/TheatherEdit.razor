@@ -1,0 +1,36 @@
+﻿@page "/theathers/edit/{Id:int}"
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+<TheatherConfig Theather="Theather" OnGrabar="Edit" />
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    public TheatherDto Theather { get; set; } = new TheatherDto();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await Get();
+    }
+
+    private async Task Get()
+    {
+        var response = await HttpClient.GetFromJsonAsync<TheatherDto>($"api/Theathers/{Id}");
+        if (response is not null)
+        {
+            Theather = response;
+        }
+    }
+
+    private async Task Edit()
+    {
+        await HttpClient.PutAsJsonAsync($"api/Theathers/{Id}", Theather);
+
+        NavigationManager.NavigateTo("/theathers");
+    }
+
+}

@@ -1,0 +1,45 @@
+﻿@inject IToastService ToastService
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+﻿<div class="col mb-5">
+    <div class="card h-100 shadow-lg">
+        <div class="text-center">
+            @if (string.IsNullOrWhiteSpace(Movie.UrlImage))
+            {
+                <img class="card-img-top border-dark border-1 movie-card" src="assets/images/sinimagen.jpeg"
+                     alt="@Movie.Title" />
+            }
+            else
+            {
+                <img class="card-img-top border-dark border-1 movie-card"
+                     src="@Movie.UrlImage" alt="@Movie.Title" />
+            }
+        </div>
+        <div class="card-body p-4 text-center">
+            <h5 class="fw-bolder">@Movie.Title</h5>
+            <span>@Movie.Duration</span>
+        </div>
+        <div class="card-footer">
+            <div class="text-center">
+                <a class="btn btn-outline-primary mt-auto" @onclick="() => OnClick.InvokeAsync(Movie.Id)">Ver pelicula</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    
+    [EditorRequired]
+    [Parameter]
+    public MovieDtoResponse Movie { get; set; } = null!;
+
+    [Parameter]
+    public EventCallback<int> OnClick { get; set; }
+
+  
+
+
+}
+

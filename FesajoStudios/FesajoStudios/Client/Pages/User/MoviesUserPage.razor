@@ -1,0 +1,95 @@
+﻿@page "/MoviesList"
+@inject IToastService ToastService
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+<PageTitle>Inicio</PageTitle>
+
+<h1 class="titulo">Escoge tu mejor opcion</h1>
+<div>
+    <div class="row justify-content-center mt-3 mb-4">
+        <div class="col-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar pelicula" />
+ 
+                <button class="btn btn-secondary" @onclick="GetMovie">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@if (Movies is not null)
+{
+    var moviesList = Movies;
+    <div class="container mb-5 gap-5">
+        <div class="row gx-4 row-cols-1 row-cols-md-3 row-cols-xl-5 justify-content-center">
+
+            @foreach (var movie in moviesList)
+            {
+                <MoviesUserList Movie="movie" OnClick="VerDetalle"/>
+            }
+        </div>
+    </div>
+}
+
+
+
+@code
+{
+    private ICollection<MovieDtoResponse>? Movies { get; set; }
+    private int? CategoriaSeleccionada { get; set; }
+
+    private string Buscar { get; set; } = default!;
+    public bool IsLoading { get; set; }
+
+    private async Task GetMovie()
+    {
+       
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+    
+
+            var response = await HttpClient.GetFromJsonAsync<ICollection<MovieDtoResponse>>("api/Movies");
+            if (response != null)
+            {
+                Movies = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    // private void OnSelectionChange(ChangeEventArgs args)
+    // {
+    //     if (args.Value!.ToString()!.Contains("-"))
+    //     {
+    //         CategoriaSeleccionada = null;
+    //     }
+    //     else
+    //     {
+    //         CategoriaSeleccionada = int.Parse(args.Value.ToString()!);
+    //     }
+    // }
+
+    // private async Task OnTeclaPresionada(KeyboardEventArgs args)
+    // {
+    //     if (args.Key.Equals("Enter", StringComparison.InvariantCultureIgnoreCase))
+    //     {
+    //         await ObtenerCatalogo();
+    //     }
+    // }
+
+    private void VerDetalle(int id)
+    {
+        NavigationManager.NavigateTo($"/MoviesList/detail/{id}");
+    }
+}

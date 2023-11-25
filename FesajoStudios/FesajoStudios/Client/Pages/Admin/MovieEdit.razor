@@ -1,0 +1,36 @@
+﻿@page "/movies/edit/{Id:int}"
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+<MoviesConfig Movie="Movie" OnGrabar="Edit" />
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    public MovieDto Movie { get; set; } = new MovieDto();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await Get();
+    }
+
+    private async Task Get()
+    {
+        var response = await HttpClient.GetFromJsonAsync<MovieDto>($"api/Movies/{Id}");
+        if (response is not null)
+        {
+            Movie = response;
+        }
+    }
+
+    private async Task Edit()
+    {
+        await HttpClient.PutAsJsonAsync($"api/Movies/{Id}", Movie);
+
+        NavigationManager.NavigateTo("/movies");
+    }
+
+}

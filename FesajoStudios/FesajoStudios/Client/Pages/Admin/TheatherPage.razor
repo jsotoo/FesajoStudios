@@ -1,0 +1,187 @@
+﻿@page "/theathers"
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
+@inject IToastService ToastService
+@attribute [Authorize]
+<PageTitle>Salas de cine</PageTitle>
+
+<h3>Salas</h3>
+
+<NavLink class="btn btn-success" href="theathers/create"><i class="bi bi-patch-plus me-1"></i>Agregar</NavLink>
+<button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
+
+
+@if (Mostrar)
+{
+
+
+
+    @if (Theathers is null)
+    {
+        <p class="alert alert-warning">Cargando....</p>
+    }
+    else if (Theathers.Count == 0)
+    {
+        <p class="alert alert-info">No se encontró datos</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover mt-4">
+            <thead>
+                <tr class="table-primary">
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Capacidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Theathers)
+                {
+                    <tr @onclick="() => SeleccionarTheater(item)">
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Capacity</td>
+                        <td>
+                            <button class="btn btn-secondary" @onclick="() => Editar(item.Id)"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-danger" @onclick="() => Eliminar(item.Id)"><i class="bi bi-trash3-fill"></i></button>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Theathers is not null && Theathers.Count > 0)
+        {
+            @if (Seats is not null)
+            {
+                <div class="modal" id="myModal" style="display: @(mostrarModal ? "block" : "none")">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Contenido del modal -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Detalles de la sala de cine</h4>
+                                <button type="button" class="close" @onclick="CerrarModal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Detalles de la sala de cine seleccionada...</p>
+                                <p> Sillas disponibles</p>
+
+                                <div class="cinema">
+                                    <div class="row">
+                                        @foreach (var item in Seats)
+                                        {
+                                            <div class="seat">@item.SeatCode</div>
+
+                                        }
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @onclick="CerrarModal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+     
+    
+     }
+
+}
+
+
+@code {
+    public ICollection<TheatherDto>? Theathers { get; set; }
+
+    public ICollection<SeatDto> Seats { get; set; } = default!;
+    private bool mostrarModal = false;
+    private TheatherDto? theaterSeleccionado { get; set; }
+
+    public bool Mostrar { get; set; }
+
+
+    private void MostrarModal(TheatherDto theather)
+    {
+
+
+    }
+
+    protected override async void OnInitialized()
+    {
+        await Load();
+    }
+
+
+
+
+    private async Task Load()
+    {
+        try
+        {
+            Mostrar = true;
+            var response = await HttpClient.GetFromJsonAsync<ICollection<TheatherDto>>("api/Theathers");
+            if (response != null)
+            {
+                Theathers = response;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    private void Editar(int id)
+    {
+        NavigationManager.NavigateTo($"/theathers/edit/{id}");
+    }
+
+    private async Task Eliminar(int id)
+    {
+        var result = await Swal.FireAsync(new SweetAlertOptions("Desea eliminar el registro?")
+            {
+                Title = "Eliminar",
+                Icon = SweetAlertIcon.Question,
+                ShowCancelButton = true
+            });
+
+        if (result.IsConfirmed)
+        {
+            await HttpClient.DeleteAsync($"api/Theathers/{id}");
+            await Load();
+        }
+    }
+
+    private async void SeleccionarTheater(TheatherDto theather)
+    {
+        theaterSeleccionado = theather;
+        mostrarModal = true;
+
+        var response = await HttpClient.GetFromJsonAsync<ICollection<SeatDto>>($"api/Seats/{theather.Id}");
+        if (response != null)
+        {
+            Seats = response;
+        }
+
+        // Notificar que ha cambiado el estado
+        StateHasChanged();
+    }
+
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+
+
+
+
+
+}

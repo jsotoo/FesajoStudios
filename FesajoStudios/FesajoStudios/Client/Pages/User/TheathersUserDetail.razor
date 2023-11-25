@@ -1,0 +1,370 @@
+﻿@page "/MoviesList/detail/theather/{Id:int}"
+@using System.Security.Claims;
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+
+<style>
+
+    .cuadrado {
+        width: 60px;
+        height: 60px;
+        background-color: lightgreen;
+        margin: 5px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .cuadrado.seleccionado {
+            background-color: red;
+            color: white;
+        }
+
+    .cuadrado-ocupado {
+        width: 60px;
+        height: 60px;
+        background-color: gray;
+        margin: 5px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .rectangulo {
+        width: 1120px;
+        height: 60px;
+        background-color: gray;
+        margin: 5px auto;
+        clear: both;
+    }
+
+
+    .column-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .columna {
+        width: 750px;
+        float: left;
+    }
+</style>
+
+
+
+<h3>Sala de cine número @Id</h3>
+
+
+<div style="text-align: right;">
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: lightgreen; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento disponible</p>
+    </div>
+
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: red; width: 20px; height: 20px; text-align:right;"></div>
+        <p style="margin-right:10px">Asiento seleccionado</p>
+    </div>
+
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: gray; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento ocupado</p>
+    </div>
+</div>
+
+
+
+<br />
+
+
+
+<br />
+<div class="rectangulo"></div>
+
+<br />
+<br />
+
+<div class="column-container">
+    @foreach (var row in ChunkedSeats)
+    {
+        <div class="columna">
+            <div class="contenedor-cuadricula">
+                @foreach (var seat in row)
+                {
+                    @if (seat.SeatTypeId != 2)
+                    {
+                        <div class="cuadrado @(SillasSeleccionadas.Contains(seat.SeatCode) ? "seleccionado" : "")" id="cuadrado_@seat.SeatCode" @onclick="() => ToggleSeleccion(seat.SeatCode)">
+                            @seat.SeatCode
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="cuadrado-ocupado" id="cuadrado_@seat.SeatCode" disabled>
+                            @seat.SeatCode
+
+                        </div>
+                    }
+
+
+
+
+                }
+            </div>
+        </div>
+    }
+</div>
+
+
+
+<h3>Sillas disponibles: @Seats.Count</h3>
+
+<!-- Etiqueta para mostrar las sillas seleccionadas -->
+<label>Sillas seleccionadas: @string.Join(", ", SillasSeleccionadas)</label>
+
+<!-- Botón de deshacer -->
+<button @onclick="DeshacerSeleccion">Deshacer</button>
+
+<br />
+<br>
+
+
+@{
+    totalCantidadAsientos = 0; // Restablecer antes de cada iteración
+    totalAsientosElegidos = 0; // Restablecer antes de cada iteración
+}
+
+
+@foreach (var item in Tickets)
+{
+    int index = Tickets.IndexOf(item);
+    int cantidadAsientos = cantidadesAsientos.Count > index ? cantidadesAsientos[index] : 0;
+
+    <div class="mb-3 row">
+        <label class="col-sm-2 form-label" for="typeTicket">@item.TicketType</label>
+
+        <div class="col-sm-3">
+            <label class="form-label" for="quantity">Ingrese la cantidad de sillas a reservar </label>
+            <div class="input-group">
+                <input type="number" class="form-control form-control-sm" id="quantity" style="max-width: 80px;" min="0" @bind="@cantidadesAsientos[index]" />
+                <span class="input-group-text">@item.Price</span>
+            </div>
+        </div>
+
+        @{
+            totalCantidadAsientos += item.Price * cantidadesAsientos[index];
+            totalAsientosElegidos += cantidadesAsientos[index];
+        }
+    </div>
+}
+
+<div>
+    <strong>Total del costo a reservar : <span id="totalCantidadAsientos">@totalCantidadAsientos</span></strong>
+</div>
+<div>
+    <strong>Total cantidad sillas ingresadas : <span id="totalCantidadAsientos">@totalAsientosElegidos</span></strong>
+</div>
+<div>
+    <strong>Total Sillas seleccionadas: <span id="totalSillasSeleccionadas">@SillasSeleccionadas.Count</span></strong>
+</div>
+
+<!-- Botón de Reservar -->
+ <button @onclick="Reservar">Reservar</button> 
+<label id="mensajeErrorLabel" style="color: red;">@mensajeError</label>
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private decimal totalCantidadAsientos = 0;
+    private decimal totalAsientosElegidos = 0;
+
+    public List<SeatDtoResponse> Seats = new List<SeatDtoResponse>();
+    public List<List<SeatDtoResponse>> ChunkedSeats = new List<List<SeatDtoResponse>>();
+    public List<TicketDtoResponse> Tickets = new List<TicketDtoResponse>();
+    private List<string> SillasSeleccionadas { get; set; } = new List<string>();
+
+    private string mensajeError = "";
+
+    List<int> cantidadesAsientos = new List<int>();
+
+
+    private void ToggleSeleccion(string seatCode)
+    {
+        if (SillasSeleccionadas.Contains(seatCode))
+        {
+            SillasSeleccionadas.Remove(seatCode);
+        }
+        else
+        {
+            SillasSeleccionadas.Add(seatCode);
+        }
+    }
+
+    private void DeshacerSeleccion()
+    {
+        if (SillasSeleccionadas.Count > 0)
+        {
+            SillasSeleccionadas.RemoveAt(SillasSeleccionadas.Count - 1);
+        }
+    }
+
+
+    private async Task Cargar()
+    {
+        try
+        {
+            var response = await HttpClient.GetFromJsonAsync<List<SeatDtoResponse>>($"api/Seats/GetSeatsByShowingId/{Id}");
+            if (response != null)
+            {
+                Seats = response;
+            }
+
+            var responseTicket = await HttpClient.GetFromJsonAsync<List<TicketDtoResponse>>($"api/Tickets/GetTicketsByShowingId/{Id}");
+            if (responseTicket != null)
+            {
+                Tickets = responseTicket;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Cargar();
+        cantidadesAsientos = Enumerable.Repeat(0, Tickets.Count).ToList();
+        await InvokeAsync(() => ChunkedSeats = Chunk(Seats, 2, 5));
+    }
+
+    private List<List<SeatDtoResponse>> Chunk(List<SeatDtoResponse> source, int rows, int columns)
+    {
+        int totalSeats = source.Count;
+        int seatsPerBlock = totalSeats / (rows * columns);
+
+        List<List<SeatDtoResponse>> result = new List<List<SeatDtoResponse>>();
+
+        for (int row = 0; row < rows; row++)
+        {
+            List<SeatDtoResponse> rowSeats = new List<SeatDtoResponse>();
+
+            for (int col = 0; col < columns; col++)
+            {
+                int startIndex = (row * columns + col) * seatsPerBlock;
+
+                if (startIndex < totalSeats)
+                {
+                    List<SeatDtoResponse> chunk = source.Skip(startIndex).Take(seatsPerBlock).ToList();
+                    rowSeats.AddRange(chunk);
+                }
+            }
+
+            result.Add(rowSeats);
+        }
+
+        return result;
+    }
+
+    private async Task Reservar()
+    {
+        if (SillasSeleccionadas.Count != totalAsientosElegidos)
+        {
+            mensajeError = "La cantidad de sillas seleccionadas no coincide con la cantidad de asientos ingresados";
+        }
+        else
+        {
+
+                var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                var user = authenticationState.User;
+                ICollection<int> seatsToBooking;
+
+
+
+                if (user != null && user.Identity != null && user.Identity.IsAuthenticated)
+                {
+                    var email = (user.FindFirst((ClaimTypes.Email)))!;
+                    var client = (await HttpClient.GetFromJsonAsync<ClientResponseDto>($"api/Clients/GetClientByEmail/byemail?email={email.Value}"))!;
+
+                    var booking = new BookingDtoRequest()
+                    {
+                        ReservationDate = DateTime.Now,
+                        BookingTypeId = 1,
+                        ShowingId = Id,
+                        ClientId = client.Id
+                    };
+
+                    await HttpClient.PostAsJsonAsync("api/Bookings", booking);
+
+
+                    seatsToBooking = await GetSeats();
+
+                    foreach (var seat in seatsToBooking)
+                    {
+
+                        var seatStateChanged = new SeatDtoRequest()
+                            {
+                                Id = seat,
+                                SeatTypeId = 2,
+
+                            };
+
+
+                        await HttpClient.PutAsJsonAsync($"api/Seats/PutSeatState/{seat}", seatStateChanged);
+
+                        var SeatXBooking = new SeatXBookingDtoRequest()
+                        {
+                            BookingId = booking.Id,
+                            SeatId = seat
+
+                        };
+
+
+                        await HttpClient.PostAsJsonAsync("api/SeatsXBookings", SeatXBooking);
+                    }
+
+
+
+
+
+                    ToastService.ShowSuccess("Reserva generada correctamente");
+
+
+                }
+            
+
+        }
+    }
+
+    private async Task<ICollection<int>> GetSeats()
+    {
+        var seatsToBooking = await Task.Run(() =>
+        {
+            return Seats
+                .Where(seat => SillasSeleccionadas.Contains(seat.SeatCode))
+                .Select(seat => seat.Id)
+                .ToList();
+        });
+
+        return seatsToBooking;
+    }
+
+
+
+
+
+
+}
+
+
+
+
+

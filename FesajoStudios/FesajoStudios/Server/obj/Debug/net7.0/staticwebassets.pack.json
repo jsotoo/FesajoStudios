@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\Matrix.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Matrix.jpg"
+    },
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\Salvar_al_soldado_Ryan.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Salvar_al_soldado_Ryan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\Saw X.png",
+      "PackagePath": "staticwebassets\\uploads\\Saw X.png"
+    },
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\avatar.jpg",
+      "PackagePath": "staticwebassets\\uploads\\avatar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\oppenheimer.jpg",
+      "PackagePath": "staticwebassets\\uploads\\oppenheimer.jpg"
+    },
+    {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\sow.jpg",
+      "PackagePath": "staticwebassets\\uploads\\sow.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FesajoStudios.Server.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.FesajoStudios.Server.props",
+      "PackagePath": "build\\FesajoStudios.Server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.FesajoStudios.Server.props",
+      "PackagePath": "buildMultiTargeting\\FesajoStudios.Server.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.FesajoStudios.Server.props",
+      "PackagePath": "buildTransitive\\FesajoStudios.Server.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

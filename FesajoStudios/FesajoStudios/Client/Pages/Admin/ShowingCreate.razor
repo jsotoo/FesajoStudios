@@ -1,0 +1,43 @@
+﻿@page "/showings/create"
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+
+<h3>Crear Función</h3>
+<ShowingConfig Movies="Movies" Showing="Showing" Theathers="Theathers" OnGrabar="Create" />
+
+@code {
+    [Parameter]
+    public ShowingDto Showing { get; set; } = new ShowingDto();
+
+    [Parameter]
+    public ICollection<MovieDto> Movies { get; set; } = new List<MovieDto>();
+
+    [Parameter]
+    public ICollection<TheatherDto> Theathers { get; set; } = new List<TheatherDto>();
+
+    private async Task Create()
+    {
+        try
+        {
+            await HttpClient.PostAsJsonAsync("api/Showings", Showing);
+            ToastService.ShowInfo("Registro de función creada correctamente");
+            NavigationManager.NavigateTo("/Showings");
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var responseMovies = await HttpClient.GetFromJsonAsync<ICollection<MovieDto>>("api/Movies");
+        if (responseMovies is not null)
+            Movies = responseMovies;
+
+        var responseTheathers = await HttpClient.GetFromJsonAsync<ICollection<TheatherDto>>("api/Theathers");
+        if (responseTheathers is not null)
+            Theathers = responseTheathers;
+    }
+}

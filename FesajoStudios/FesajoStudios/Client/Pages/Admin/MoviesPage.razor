@@ -1,0 +1,120 @@
+﻿@page "/movies"
+
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+@inject SweetAlertService Swal
+@attribute [Authorize]
+
+<PageTitle>Peliculas</PageTitle>
+
+<h3>Peliculas</h3>
+
+<button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
+<NavLink class="btn btn-success" href="movies/create"><i class="bi bi-patch-plus me-1"></i>Agregar</NavLink>
+
+@if (Mostrar)
+{
+
+    @if (Movies is null)
+    {
+        <p class="alert alert-warning">Cargando....</p>
+    }
+    else if (Movies.Count == 0)
+    {
+        <p class="alert alert-info">No se encontró datos</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover mt-4">
+            <thead>
+                <tr class="table-primary">
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Descripción</th>
+                    <th>Duración</th>
+                    <th>Clasificación</th>
+                    <th>Director</th>
+                    <th>Genero</th>
+                    <th>Fecha de lanzamiento</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Movies)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Duration</td>
+                        <td>@item.Rating</td>
+                        <td>@item.Director</td>
+                        <td>@item.Genre</td>
+                        <td>@item.ReleaseDate</td>
+                        <td><img src="@item.UrlImage" alt="@item.Title" style="width: 130px" /></td>
+                        <td>
+                          
+                            <button class="btn btn-secondary" @onclick="() => Edit(item.Id)"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-danger" @onclick="() => Delete(item.Id)"><i class="bi bi-trash3-fill"></i></button>        
+                 
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+}
+
+@code {
+
+    public ICollection<MovieDtoResponse>? Movies { get; set; }
+
+    public bool Mostrar { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        try
+        {
+            Mostrar = true;
+
+            var response = await HttpClient.GetFromJsonAsync<ICollection<MovieDtoResponse>>("api/Movies");
+            if (response != null)
+            {
+                Movies = response;
+            }
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    private void Edit(int id)
+    {
+        NavigationManager.NavigateTo($"/movies/edit/{id}");
+    }
+
+    private async Task Delete(int id)
+    {
+        var result = await Swal.FireAsync(new SweetAlertOptions("Desea eliminar el registro?")
+        {
+            Title = "Eliminar",
+            Icon = SweetAlertIcon.Question,
+            ShowCancelButton = true
+        });
+
+        if (result.IsConfirmed)
+        {
+            await HttpClient.DeleteAsync($"api/Movies/{id}");
+            await Load();
+        }
+    }
+}

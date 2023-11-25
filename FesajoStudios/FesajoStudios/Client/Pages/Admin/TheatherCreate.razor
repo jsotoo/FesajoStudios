@@ -1,0 +1,20 @@
+﻿@page "/theathers/create"
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+
+<TheatherConfig Theather="Theather" OnGrabar="Grabar" />
+
+@code {
+
+    public TheatherDto Theather { get; set; } = new TheatherDto();
+
+    private async Task Grabar()
+    {
+        await HttpClient.PostAsJsonAsync("api/Theathers", Theather);
+        NavigationManager.NavigateTo("/Theathers");
+
+        ToastService.ShowSuccess("Se guardó correctamente la pelicula");
+    }
+
+}

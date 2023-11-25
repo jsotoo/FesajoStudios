@@ -1,0 +1,56 @@
+﻿@using FesajoStudios.Client.Pages.User;
+@inherits LayoutComponentBase
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
+<BlazoredToasts></BlazoredToasts>
+<div class="page">
+
+     <AuthorizeView>
+        <div class="sidebar">
+             <NavMenu />
+         </div>
+
+   </AuthorizeView>
+
+    <main>
+         <AuthorizeView>
+            <div class="top-row px-4">
+                
+                <i class="bi bi-person-circle me-1"></i> @context.User.Identity!.Name
+                <button class="btn btn-outline-info" @onclick="CerrarSesion"><i class="bi bi-door-open me-1"></i>Salir</button>
+            </div>
+         </AuthorizeView>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+@code {
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    private bool IsAuthenticated { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await authenticationStateTask;
+        IsAuthenticated = authenticationState.User?.Identity?.IsAuthenticated ?? false;
+    }
+    private async Task CerrarSesion()
+    {
+        var result = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = "Desea salir?",
+                Icon = SweetAlertIcon.Question,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí",
+                CancelButtonText = "No"
+            });
+
+        if (result.IsConfirmed)
+        {
+            var auth = (AuthenticationService)AuthenticationStateProvider;
+            await auth.Authenticate(null);
+            NavigationManager.NavigateTo("/Login");
+        }
+    }
+}

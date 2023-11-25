@@ -1,0 +1,20 @@
+﻿@page "/movies/create"
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+
+<MoviesConfig Movie="Movie" OnGrabar="Grabar" />
+
+@code {
+
+    public MovieDto Movie { get; set; } = new MovieDto();
+
+    private async Task Grabar()
+    {
+        await HttpClient.PostAsJsonAsync("api/Movies", Movie);
+        NavigationManager.NavigateTo("/Movies");
+
+        ToastService.ShowSuccess("Se guardó correctamente la pelicula");
+    }
+
+}

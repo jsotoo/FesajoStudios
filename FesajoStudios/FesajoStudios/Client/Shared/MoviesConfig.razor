@@ -1,0 +1,108 @@
+﻿@inject SweetAlertService Swal
+
+<EditForm Model="Movie" OnValidSubmit="Grabar">
+
+    <DataAnnotationsValidator />
+
+    <div class="row row-cols-1 row-cols-md-2 g-2">
+        <div class="col">
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="title">Titulo:</label>
+                <input type="text" id="title" class="form-control" @bind-value="Movie.Title" />
+                <ValidationMessage For="() => Movie.Title" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="description">Descripción:</label>
+                <InputTextArea id="description" class="form-control" @bind-Value="Movie.Description" rows="4" />
+                <ValidationMessage For="() => Movie.Description" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="c">Duración:</label>
+                <input type="datetime" id="duration" class="form-control" @bind-value="Movie.Duration" />
+                <ValidationMessage For="() => Movie.Duration" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="raiting">Clasificación:</label>
+                <input type="text" id="raiting" class="form-control" @bind-value="Movie.Rating" />
+                <ValidationMessage For="() => Movie.Rating" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="director">Director:</label>
+                <input type="text" id="director" class="form-control" @bind-value="Movie.Director" />
+                <ValidationMessage For="() => Movie.Director" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="genre">Genero:</label>
+                <input type="text" id="genre" class="form-control" @bind-value="Movie.Genre" />
+                <ValidationMessage For="() => Movie.Genre" />
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 form-label" for="releaseDate">Fecha de lanzamiento:</label>
+                <input type="datetime-local" id="releaseDate" class="form-control" @bind-value="Movie.ReleaseDate" />
+                <ValidationMessage For="() => Movie.ReleaseDate" />
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    @if (Movie.Base64Image is not null)
+                    {
+                        <div style="margin: 10px">
+                            <img src="data:image/jpeg;base64,@Movie.Base64Image" alt="@Movie.Title" style="width: 400px" />
+                        </div>
+                    }
+                    else
+                    {
+                        <img src="@Movie.UrlImage" alt="@Movie.Title" style="width: 400px" />
+                    }
+                </div>
+                <div class="card-footer">
+                    <InputFile accept="image/png, image/jpeg, image/webp" style="display: none" OnChange="OnFileUploaded" id="file" />
+                    <label for="file" class="btn btn-secondary"><i class="bi bi-camera me-1"></i>IMAGEN</label>
+                </div>
+                <ValidationMessage For="() => Movie.UrlImage" />
+            </div>
+
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2">
+        <button type="submit" class="btn btn-primary w-25"><i class="bi bi-floppy me-1"></i>Grabar</button>
+    </div>
+
+    <ValidationSummary />
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public MovieDto Movie { get; set; } = new MovieDto();
+
+    [Parameter]
+    public EventCallback OnGrabar { get; set; }
+
+    private void Grabar()
+    {
+        OnGrabar.InvokeAsync();
+    }
+
+    protected override void OnInitialized()
+    {
+        Movie.ReleaseDate = DateTime.Now;
+    }
+
+    private async Task OnFileUploaded(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            var imagen = e.File;
+            var buffer = new byte[imagen.Size];
+            var _ = await imagen.OpenReadStream().ReadAsync(buffer);
+
+            Movie.Base64Image = Convert.ToBase64String(buffer);
+            Movie.NameFile = imagen.Name;
+            Movie.UrlImage = null;
+        }
+        catch (Exception ex)
+        {
+            await Swal.FireAsync("Error de Archivo", ex.Message);
+        }
+    }
+}
