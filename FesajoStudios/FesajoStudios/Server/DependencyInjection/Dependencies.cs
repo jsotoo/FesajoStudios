@@ -17,7 +17,8 @@ namespace FesajoStudios.Server.DependencyInjection
                     .AddTransient<ITicketTypeRepository, TicketTypeRepository>()
                     .AddTransient<IClientRepository, ClientRepository>()
                     .AddTransient<IBookingRepository, BookingRepository>()
-                    .AddTransient<ISeatXBookingRepository, SeatXBookingRepository>() ;
+                    .AddTransient<ISeatXBookingRepository, SeatXBookingRepository>()
+                    .AddTransient<IBookingTypeRepository, BookingTypeRepository>();
 
             return services;
         }

@@ -10,10 +10,13 @@ namespace FesajoStudios.Server.Controllers
     public class SeatsXBookingsController: ControllerBase
     {
         private readonly ISeatXBookingRepository _seatBookingRepository;
+        private readonly ISeatRepository _seatRepository;
 
-        public SeatsXBookingsController(ISeatXBookingRepository seatBookingRepository)
+
+        public SeatsXBookingsController(ISeatXBookingRepository seatBookingRepository, ISeatRepository seatRepository)
         {
             _seatBookingRepository = seatBookingRepository;
+            _seatRepository = seatRepository;
         }
 
 
@@ -26,6 +29,7 @@ namespace FesajoStudios.Server.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
+
             return Ok(await _seatBookingRepository.FindAsync(id));
         }
 

@@ -4,7 +4,7 @@
 @inject NavigationManager NavigationManager
 @inject IToastService ToastService
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
+@inject SweetAlertService Swal 
 
 
 <style>
@@ -57,7 +57,7 @@
 
 
 
-<h3>Sala de cine número @Id</h3>
+
 
 
 <div style="text-align: right;">
@@ -80,6 +80,94 @@
 
 
 <br />
+
+<div class="container">
+    <div class="row">
+        <!-- Columna de Datos de la Película -->
+        <div class="col-md-4 alert alert-success">
+            <h4>Datos de la película</h4>
+            <div class="mb-3">
+                <label class="form-label" for="startTime">Hora de inicio:</label>
+                <span>@Showing.StartDate.ToString("HH:mm")</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="endTime">Hora fin:</label>
+                <span>@Showing.EndDate.ToString("HH:mm")</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="movie">Película:</label>
+                <span>@Showing.Movie</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="movie">Teatro:</label>
+                <span>@Showing.Theather</span>
+            </div>
+        </div>
+
+
+        @{
+            totalCantidadAsientos = 0; // Restablecer antes de cada iteración
+            totalAsientosElegidos = 0; // Restablecer antes de cada iteración
+        }
+
+
+        <!-- Columna de Tickets -->
+        <div class="col-md-4 alert alert-info">
+            <h4>Información Tickets</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach (var item in Tickets)
+                    {
+                        int index = Tickets.IndexOf(item);
+                        int cantidadAsientos = cantidadesAsientos.Count > index ? cantidadesAsientos[index] : 0;
+
+                        <div class="mb-3">
+                            <strong><label class="form-label" for="typeTicket">@item.TicketType</label></strong>
+
+                            <div>
+                                <label class="form-label" for="quantity">Ingrese la cantidad de sillas a reservar</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control form-control-sm" id="quantity" style="max-width: 80px;" min="0" @bind="@cantidadesAsientos[index]" />
+                                    <span class="input-group-text">@item.Price</span>
+                                </div>
+                            </div>
+
+                            @{
+                                totalCantidadAsientos += item.Price * cantidadesAsientos[index];
+                                totalAsientosElegidos += cantidadesAsientos[index];
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+      
+        <!-- Columna de Totales -->
+        <div class="col-md-4 alert alert-warning">
+            <div>
+                <strong>Total del costo a reservar: <span id="totalCantidadAsientos">@totalCantidadAsientos</span></strong>
+            </div>
+            <div>
+                <strong>Total cantidad sillas ingresadas: <span id="totalCantidadAsientos">@totalAsientosElegidos</span></strong>
+            </div>
+            <div>
+                <strong>Total Sillas seleccionadas: <span id="totalSillasSeleccionadas">@SillasSeleccionadas.Count</span></strong>
+            </div>
+            <br />
+            <br />
+            <!-- Botón de Reservar -->
+            <button class="btn btn-primary" @onclick="Reservar">Reservar</button>
+            <label id="mensajeErrorLabel" style="color: red;">@mensajeError</label>
+        </div>
+    </div>
+</div>
+
+
+@{
+    total = 0;
+
+}
 
 
 
@@ -105,14 +193,13 @@
                     }
                     else
                     {
-                        <div class="cuadrado-ocupado" id="cuadrado_@seat.SeatCode" disabled>
-                            @seat.SeatCode
+                       
+                       total = total + 1;
 
+                        <div class="cuadrado-ocupado" id="cuadrado_@seat.SeatCode" disabled>
+                            @seat.SeatCode                      
                         </div>
                     }
-
-
-
 
                 }
             </div>
@@ -121,61 +208,21 @@
 </div>
 
 
+@{
+    int availableSeats = Seats.Count - total;
+}
 
-<h3>Sillas disponibles: @Seats.Count</h3>
+<h3>Sillas disponibles: @availableSeats</h3>
 
 <!-- Etiqueta para mostrar las sillas seleccionadas -->
 <label>Sillas seleccionadas: @string.Join(", ", SillasSeleccionadas)</label>
 
 <!-- Botón de deshacer -->
-<button @onclick="DeshacerSeleccion">Deshacer</button>
+<button class="btn btn-danger" @onclick="DeshacerSeleccion">Deshacer</button>
 
 <br />
 <br>
 
-
-@{
-    totalCantidadAsientos = 0; // Restablecer antes de cada iteración
-    totalAsientosElegidos = 0; // Restablecer antes de cada iteración
-}
-
-
-@foreach (var item in Tickets)
-{
-    int index = Tickets.IndexOf(item);
-    int cantidadAsientos = cantidadesAsientos.Count > index ? cantidadesAsientos[index] : 0;
-
-    <div class="mb-3 row">
-        <label class="col-sm-2 form-label" for="typeTicket">@item.TicketType</label>
-
-        <div class="col-sm-3">
-            <label class="form-label" for="quantity">Ingrese la cantidad de sillas a reservar </label>
-            <div class="input-group">
-                <input type="number" class="form-control form-control-sm" id="quantity" style="max-width: 80px;" min="0" @bind="@cantidadesAsientos[index]" />
-                <span class="input-group-text">@item.Price</span>
-            </div>
-        </div>
-
-        @{
-            totalCantidadAsientos += item.Price * cantidadesAsientos[index];
-            totalAsientosElegidos += cantidadesAsientos[index];
-        }
-    </div>
-}
-
-<div>
-    <strong>Total del costo a reservar : <span id="totalCantidadAsientos">@totalCantidadAsientos</span></strong>
-</div>
-<div>
-    <strong>Total cantidad sillas ingresadas : <span id="totalCantidadAsientos">@totalAsientosElegidos</span></strong>
-</div>
-<div>
-    <strong>Total Sillas seleccionadas: <span id="totalSillasSeleccionadas">@SillasSeleccionadas.Count</span></strong>
-</div>
-
-<!-- Botón de Reservar -->
- <button @onclick="Reservar">Reservar</button> 
-<label id="mensajeErrorLabel" style="color: red;">@mensajeError</label>
 
 
 @code {
@@ -184,13 +231,19 @@
 
     private decimal totalCantidadAsientos = 0;
     private decimal totalAsientosElegidos = 0;
+    private int total = 0;
+
 
     public List<SeatDtoResponse> Seats = new List<SeatDtoResponse>();
     public List<List<SeatDtoResponse>> ChunkedSeats = new List<List<SeatDtoResponse>>();
     public List<TicketDtoResponse> Tickets = new List<TicketDtoResponse>();
+    public ShowingDtoResponse Showing = new ShowingDtoResponse();
+
     private List<string> SillasSeleccionadas { get; set; } = new List<string>();
 
     private string mensajeError = "";
+
+
 
     List<int> cantidadesAsientos = new List<int>();
 
@@ -220,6 +273,7 @@
     {
         try
         {
+
             var response = await HttpClient.GetFromJsonAsync<List<SeatDtoResponse>>($"api/Seats/GetSeatsByShowingId/{Id}");
             if (response != null)
             {
@@ -232,10 +286,18 @@
                 Tickets = responseTicket;
             }
 
+            var responseShowing = await HttpClient.GetFromJsonAsync<ShowingDtoResponse>($"api/Showings/{Id}");
+            if (responseShowing != null)
+            {
+                Showing = responseShowing;
+            }
+
+
         }
         catch (Exception ex)
         {
-            ToastService.ShowError(ex.Message);
+            
+            Console.WriteLine(ex.Message);
         }
     }
 
@@ -283,26 +345,47 @@
         else
         {
 
-                var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-                var user = authenticationState.User;
-                ICollection<int> seatsToBooking;
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authenticationState.User;
+            ICollection<int> seatsToBooking;
 
 
 
-                if (user != null && user.Identity != null && user.Identity.IsAuthenticated)
-                {
-                    var email = (user.FindFirst((ClaimTypes.Email)))!;
-                    var client = (await HttpClient.GetFromJsonAsync<ClientResponseDto>($"api/Clients/GetClientByEmail/byemail?email={email.Value}"))!;
+            if (user != null && user.Identity != null && user.Identity.IsAuthenticated)
+            {
+                var email = (user.FindFirst((ClaimTypes.Email)))!;
+                var client = (await HttpClient.GetFromJsonAsync<ClientResponseDto>($"api/Clients/GetClientByEmail/byemail?email={email.Value}"))!;
 
-                    var booking = new BookingDtoRequest()
+                var booking = new BookingDtoRequest()
                     {
                         ReservationDate = DateTime.Now,
                         BookingTypeId = 1,
                         ShowingId = Id,
                         ClientId = client.Id
+
+
                     };
 
-                    await HttpClient.PostAsJsonAsync("api/Bookings", booking);
+                var response = await HttpClient.PostAsJsonAsync("api/Bookings", booking);
+                var newBookingId = 0;
+                if (response.IsSuccessStatusCode)
+                {
+                    // La solicitud fue exitosa, intenta obtener el ID del nuevo booking del cuerpo de la respuesta.
+                    var bookingResponse = await response.Content.ReadFromJsonAsync<BookingDtoResponse>();
+
+                    if (bookingResponse != null)
+                    {
+                         newBookingId = bookingResponse.Id;
+                    }
+
+                }
+                else
+                {
+                    // Manejar el error si la solicitud no fue exitosa.
+                    Console.WriteLine($"Error al crear el booking. Código de estado: {response.StatusCode}");
+                }
+
+
 
 
                     seatsToBooking = await GetSeats();
@@ -310,39 +393,54 @@
                     foreach (var seat in seatsToBooking)
                     {
 
-                        var seatStateChanged = new SeatDtoRequest()
-                            {
-                                Id = seat,
-                                SeatTypeId = 2,
-
-                            };
-
-
-                        await HttpClient.PutAsJsonAsync($"api/Seats/PutSeatState/{seat}", seatStateChanged);
-
+                    
+                       
                         var SeatXBooking = new SeatXBookingDtoRequest()
                         {
-                            BookingId = booking.Id,
+                            BookingId = newBookingId,
                             SeatId = seat
+                        };
+
+                        await HttpClient.PostAsJsonAsync("api/SeatsXBookings", SeatXBooking);
+
+                        var seatStateChanged = new SeatDtoRequest()
+                        {
+                            SeatTypeId = 2
 
                         };
 
+                    await HttpClient.PutAsJsonAsync($"api/Seats/PutBySeatType/{seat}", seatStateChanged);
 
-                        await HttpClient.PostAsJsonAsync("api/SeatsXBookings", SeatXBooking);
+
                     }
 
 
 
 
+                            
+             }
 
-                    ToastService.ShowSuccess("Reserva generada correctamente");
 
 
-                }
-            
+            var result = await Swal.FireAsync(new SweetAlertOptions
+                {
+                    Title = "Reserva generada correctamente. Puede visualizar su reserva en 'Mis Reservas' en el menú principal",
+                    Icon = SweetAlertIcon.Success,
+                });
+
+            if (result.IsConfirmed)
+            {
+
+                NavigationManager.NavigateTo("/MoviesList");
+            }
+
 
         }
-    }
+            
+
+     }
+
+
 
     private async Task<ICollection<int>> GetSeats()
     {
@@ -358,11 +456,26 @@
     }
 
 
-
-
-
-
+    private bool IsValidJson(string json)
+    {
+        try
+        {
+            JsonDocument.Parse(json);
+            return true;
+        }
+        catch (JsonException)
+        {
+            return false;
+        }
+    }
 }
+
+   
+
+
+
+
+
 
 
 

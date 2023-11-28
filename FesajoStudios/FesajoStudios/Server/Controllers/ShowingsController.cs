@@ -43,7 +43,15 @@ namespace FesajoStudios.Server.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _showingrepository.FindAsync(id));
+            var showings = await _showingrepository.ListAsync();
+            var movies = await _movierepository.ListAsync();
+            var theathers = await _theatherRepository.ListAsync();
+
+            var showingDto = showings.ConvertToDtoGetShowingsById(movies, theathers, id);
+            return Ok(showingDto);
+
+
+
         }
 
 

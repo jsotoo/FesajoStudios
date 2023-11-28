@@ -1,0 +1,79 @@
+﻿@page "/Bookings/detail/{Id:int}"
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject SweetAlertService Swal
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="alert alert-info">
+                <h2 class="alert-heading">Detalles de Reserva</h2>
+                <p>
+                    Gracias por utilizar nuestro servicio de reservas. A continuación, te proporcionamos los detalles de tu reserva:
+                </p>
+                <ul>
+                    <li><strong>Nombre:</strong> @Booking.Client</li>
+                    <li><strong>Función:</strong> @Booking.Showing</li>
+                    <li><strong>Fecha de reserva:</strong> @Booking.ReservationDate</li>
+                    <li><strong>Tipo de Reserva:</strong> @Booking.BookingType</li>
+                    <li><strong>Cantidad de sillas reservadas:</strong> @SeatsReserved.Count</li>
+                    @foreach (var item in SeatsReserved)
+                    {
+                        <li><strong>Silla reservada:</strong> @item.SeatCode</li>
+                        <li><strong>Silla Estado:</strong> @item.SeatType</li>
+                    }
+
+                    <li><strong>Detalles Adicionales:</strong> Tu reserva está confirmada. ¡Esperamos verte pronto!</li>
+                </ul>
+                <hr>
+                <p class="mb-0">
+                    Si necesitas realizar cambios o tienes alguna pregunta, por favor contáctanos.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Add an image in the second column -->
+            <img src="@Booking.movieImage" alt="@Booking.Showing" class="img-fluid">
+        </div>
+    </div>
+
+    <li><a href="/Bookings">Volver</a></li>
+</div>
+
+
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public BookingDtoResponse Booking = new BookingDtoResponse();
+
+    public List<SeatDtoResponse> SeatsReserved = new List<SeatDtoResponse>();
+
+
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        var responseBookings = await HttpClient.GetFromJsonAsync<BookingDtoResponse>($"api/Bookings/{Id}");
+        if (responseBookings != null)
+        {
+            Booking = responseBookings;
+        }
+
+        var reponseSeatsReserved = await HttpClient.GetFromJsonAsync<List<SeatDtoResponse>>($"api/Seats/GetSeatsByBookingId/{Id}");
+        if (reponseSeatsReserved != null)
+        {
+            SeatsReserved = reponseSeatsReserved;
+        }
+    }
+
+
+
+
+}

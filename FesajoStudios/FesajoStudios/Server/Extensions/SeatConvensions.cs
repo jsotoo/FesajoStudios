@@ -1,6 +1,7 @@
 ﻿using FesajoStudios.Client.Shared;
 using FesajoStudios.Entities;
 using FesajoStudios.Shared;
+using FesajoStudios.Shared.Reponse;
 using System.Runtime.Intrinsics.Arm;
 
 namespace FesajoStudios.Server.Extensions
@@ -77,6 +78,32 @@ namespace FesajoStudios.Server.Extensions
                     .ToList();
 
         }
+
+        public static IEnumerable<SeatDtoResponse> GetByBookingIdConvertToDto(this IEnumerable<Seat> seats,
+                                                         IEnumerable<SeatXBooking> seatsXBookings,
+                                                         IEnumerable<SeatType> seatsType,
+                                                         IEnumerable<Showing> showings,
+                                                         IEnumerable<Movie> movies, int id)
+        {
+            return (from seat in seats
+                    join seatXbooking in seatsXBookings on seat.Id equals seatXbooking.SeatId
+                    join seatType in seatsType on seat.SeatTypeId equals seatType.Id
+                    join showing in showings on seat.ShowingId equals showing.Id
+                    join movie in movies on showing.MovieId equals movie.Id
+                    where seatXbooking.BookingId == id
+                    select new SeatDtoResponse
+                    {
+                        Id = seat.Id,
+                        SeatCode = seat.SeatCode,
+                        SeatTypeId = seat.SeatTypeId,
+                        ShowingId = showing.Id,
+                        SeatType = seatType.Description,
+                        Showing = movie.Title
+
+                    }).ToList();
+
+        }
+
 
     }
 }

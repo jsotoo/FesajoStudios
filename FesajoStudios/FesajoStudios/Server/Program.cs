@@ -78,7 +78,17 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAny",
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
 
 
 var app = builder.Build();
@@ -119,7 +129,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapFallbackToFile("index.html");
-
+app.UseCors("AllowAny");
 
 using (var scope = app.Services.CreateScope())
 {

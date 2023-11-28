@@ -209,15 +209,15 @@
       "mscorlib.dll": "sha256-YcsJInaT\/kw3Vrm+SESegPxvT\/Lr9RE6rE\/KnxWIIc0=",
       "netstandard.dll": "sha256-TztlSRjADgiEABbiAMdWZpHrUVd8wnRtQRAvlwmRP\/4=",
       "System.Private.CoreLib.dll": "sha256-BAhrZ8Zg3cJKQipxdzqQo+9jtPkOkRx1ou3oIhDohtk=",
-      "FesajoStudios.Shared.dll": "sha256-p4tTgB9JjdQAYxu54rw8oIEWsqXYF85UfFY4L1prIz0=",
-      "FesajoStudios.Client.dll": "sha256-D9JoKjT5W7mExiRPVr4OWijxmORE9YKZlhTWfaV2vFI="
+      "FesajoStudios.Shared.dll": "sha256-IXlUhStb8hqk22iL9RSdc9lXT+q0NaR4KBuN6FKC2WI=",
+      "FesajoStudios.Client.dll": "sha256-dSq8+qckcf0N36vImobOwE\/6xLCJIvX73B8Rys0YY\/8="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "FesajoStudios.Shared.pdb": "sha256-CDdI9XlwHCIwnQZUyR+YIFoSPl53HeahAx8uAo9qS7w=",
-      "FesajoStudios.Client.pdb": "sha256-BjFr2B5UdFTzycKZGlQPDt\/8WvcUBkhY\/Y0K5Ok4A9c="
+      "FesajoStudios.Shared.pdb": "sha256-ynTtVdkmZFEn8dhWlEVVUzafBPclqkgZcAklvZh19J4=",
+      "FesajoStudios.Client.pdb": "sha256-pcX5VY7VglB+wySR1DprNBsBLdD3VzmvzpanIckWfHE="
     },
     "runtime": {
       "dotnet.7.0.14.avug792rth.js": "sha256-YWGUknGRzP\/fgO6YjvCJKPVQNZAPEd6ll+rHfQEIW+I=",

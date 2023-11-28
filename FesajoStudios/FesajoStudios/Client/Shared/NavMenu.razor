@@ -1,6 +1,14 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">FesajoStudios</a>
+         <AuthorizeView Roles="Administrador">
+            <a class="navbar-brand" href="/">FesajoStudios</a>
+        </AuthorizeView>
+        <AuthorizeView Roles="Cliente">
+            <a class="navbar-brand" href="/MoviesList">FesajoStudios</a>
+        </AuthorizeView>
+
+
+
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +47,7 @@
         <AuthorizeView Roles="Cliente">
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="Bookings">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> Reservas
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Mis Reservas
                 </NavLink>
             </div>
         </AuthorizeView>

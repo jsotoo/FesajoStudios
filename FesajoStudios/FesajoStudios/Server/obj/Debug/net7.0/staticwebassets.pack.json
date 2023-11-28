@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\LaberintoDelFauno.jpg",
+      "PackagePath": "staticwebassets\\uploads\\LaberintoDelFauno.jpg"
+    },
+    {
       "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\Matrix.jpg",
       "PackagePath": "staticwebassets\\uploads\\Matrix.jpg"
     },

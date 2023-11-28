@@ -1,7 +1,88 @@
 ﻿@page "/Bookings"
 
-<h3>BookingsUserList</h3>
+@using System.Security.Claims;
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject IToastService ToastService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject SweetAlertService Swal
+
+
+<h3>Reservas generadas</h3>
+
+
+
+@if (Bookings is null)
+{
+    <p class="alert alert-warning">Cargando....</p>
+}
+else if (Bookings.Count == 0)
+{
+    <p class="alert alert-info">No tienes ninguna reserva</p>
+}
+else
+{
+    <table class="table table-bordered table-hover mt-4">
+        <thead>
+            <tr class="table-primary">
+                <th>Id</th>
+                <th>Cliente</th>
+                <th>Tipo de reserva</th>
+                <th>Fecha creación reserva</th>
+                <th>Función</th>
+                <th>Ver detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Bookings)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Client</td>
+                    <td>@item.BookingType</td>
+                    <td>@item.ReservationDate</td>
+                    <td>@item.Showing</td>
+                    <td> 
+                     <button class="btn btn-secondary" @onclick="() => ShowBookingDetail(item.Id)"><i class="bi bi-pencil"></i></button> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
 
 @code {
+    public List<BookingDtoResponse> Bookings = new List<BookingDtoResponse>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authenticationState.User;
+        var clientId = 0;
+        if (user != null && user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            var email = (user.FindFirst((ClaimTypes.Email)))!;
+            var client = (await HttpClient.GetFromJsonAsync<ClientResponseDto>($"api/Clients/GetClientByEmail/byemail?email={email.Value}"))!;
+            clientId = client.Id;
+        }
+
+        var responseBookings = await HttpClient.GetFromJsonAsync<List<BookingDtoResponse>>($"api/Bookings/GetByClientId/{clientId}");
+        if (responseBookings != null)
+        {
+            Bookings = responseBookings;
+        }
+
+
+    }
+
+
+    private void ShowBookingDetail(int id)
+    {
+        NavigationManager.NavigateTo($"/Bookings/detail/{id}");
+    }
+
 
 }

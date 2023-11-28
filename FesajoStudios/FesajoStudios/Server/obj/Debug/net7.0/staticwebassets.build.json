@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EYqTx24jCFQXoZyYVdBvY1dG06XnxN3RYgmXZCFqRYE=",
+  "Hash": "DO0/lgpMTsBNfknlowHdE+NHOg17bNAoW7d79euhdbI=",
   "Source": "FesajoStudios.Server",
   "BasePath": "_content/FesajoStudios.Server",
   "Mode": "Default",
@@ -8262,6 +8262,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\avatar.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\LaberintoDelFauno.jpg",
+      "SourceId": "FesajoStudios.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\",
+      "BasePath": "_content/FesajoStudios.Server",
+      "RelativePath": "uploads/LaberintoDelFauno.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\LaberintoDelFauno.jpg"
     },
     {
       "Identity": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\Matrix.jpg",

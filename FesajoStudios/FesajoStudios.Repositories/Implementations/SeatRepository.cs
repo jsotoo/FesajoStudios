@@ -27,5 +27,14 @@ namespace FesajoStudios.Repositories.Implementations
                 .ToListAsync();
         }
 
+
+        public async Task UpdateAsyncEntity(Seat seat)
+        {
+            _context.Entry(seat).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+
+
     }
 }

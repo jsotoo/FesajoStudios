@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FesajoStudios.Shared.Request
 {
     public class BookingDtoRequest
     {
+        [JsonPropertyName("id")]
         public int Id { get; set; }
+
+        [JsonPropertyName("reservationDate")]
         public DateTime ReservationDate { get; set; }
-        public string? BookingType { get; set; }
+
+        [JsonPropertyName("bookingTypeId")]
         public int BookingTypeId { get; set; }
-        public string? Showing { get; set; }
+
+        [JsonPropertyName("showingId")]
         public int ShowingId { get; set; }
-        public string? Client { get; set; }
+
+        [JsonPropertyName("clientId")]
         public int ClientId { get; set; }
 
     }
