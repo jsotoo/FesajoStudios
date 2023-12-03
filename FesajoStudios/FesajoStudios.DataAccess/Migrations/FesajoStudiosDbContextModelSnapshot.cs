@@ -322,11 +322,16 @@ namespace FesajoStudios.DataAccess.Migrations
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
+                    b.Property<int>("TheatherId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SeatTypeId");
 
                     b.HasIndex("ShowingId");
+
+                    b.HasIndex("TheatherId");
 
                     b.ToTable("Seat");
                 });
@@ -698,9 +703,16 @@ namespace FesajoStudios.DataAccess.Migrations
                         .HasForeignKey("ShowingId")
                         .IsRequired();
 
+                    b.HasOne("FesajoStudios.Entities.Theather", "Theather")
+                        .WithMany()
+                        .HasForeignKey("TheatherId")
+                        .IsRequired();
+
                     b.Navigation("SeatType");
 
                     b.Navigation("Showing");
+
+                    b.Navigation("Theather");
                 });
 
             modelBuilder.Entity("FesajoStudios.Entities.SeatXBooking", b =>

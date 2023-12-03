@@ -19,13 +19,6 @@ namespace FesajoStudios.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<ICollection<Seat>> GetSeatsFromShowingId(int id)
-        {
-            return await _context.Set<Seat>()
-                .Where(p => p.State)
-                .Where(seat => seat.ShowingId == id)
-                .ToListAsync();
-        }
 
 
         public async Task UpdateAsyncEntity(Seat seat)

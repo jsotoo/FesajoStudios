@@ -41,7 +41,10 @@ builder.Services.AddIdentity<IdentityUserFesajoStudios, IdentityRole>(policies =
     .AddEntityFrameworkStores<FesajoStudiosDbContext>()
     .AddDefaultTokenProviders();
 
-
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es-CO");
+});
 
 builder.Services.AddRepositories().AddServices();
 

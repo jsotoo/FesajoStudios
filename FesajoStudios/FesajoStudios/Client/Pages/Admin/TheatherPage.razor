@@ -12,10 +12,9 @@
 <button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
 
 
-@if (Mostrar)
-{
 
 
+@if (Mostrar){
 
     @if (Theathers is null)
     {
@@ -27,96 +26,68 @@
     }
     else
     {
-        <table class="table table-bordered table-hover mt-4">
-            <thead>
-                <tr class="table-primary">
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Capacidad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Theathers)
-                {
-                    <tr @onclick="() => SeleccionarTheater(item)">
-                        <td>@item.Id</td>
-                        <td>@item.Name</td>
-                        <td>@item.Capacity</td>
-                        <td>
-                            <button class="btn btn-secondary" @onclick="() => Editar(item.Id)"><i class="bi bi-pencil"></i></button>
-                            <button class="btn btn-danger" @onclick="() => Eliminar(item.Id)"><i class="bi bi-trash3-fill"></i></button>
 
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
 
-    @if (Theathers is not null && Theathers.Count > 0)
+        @if (Theathers is not null)
         {
-            @if (Seats is not null)
-            {
-                <div class="modal" id="myModal" style="display: @(mostrarModal ? "block" : "none")">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Contenido del modal -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Detalles de la sala de cine</h4>
-                                <button type="button" class="close" @onclick="CerrarModal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Detalles de la sala de cine seleccionada...</p>
-                                <p> Sillas disponibles</p>
+                    var theathersList = Theathers;
+            <div class="container mb-5 gap-5">
+                <div class="row gx-4 row-cols-1 row-cols-md-3 row-cols-xl-5 justify-content-center">
 
-                                <div class="cinema">
-                                    <div class="row">
-                                        @foreach (var item in Seats)
-                                        {
-                                            <div class="seat">@item.SeatCode</div>
-
-                                        }
+                   @foreach (var theather in theathersList)
+                    {
+                        <div class="col mb-5">
+                            <div class="card h-100 shadow-lg">
+                                <div class="text-center">
+                                    <img class="card-img-top border-dark border-1 movie-card" src="/uploads/theather.jpg" alt="@theather.Name" />
+                                </div>
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="fw-bolder">@theather.Name</h5>
+                                    <span> Cantidad de sillas: @theather.Capacity</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-primary mt-auto" @onclick="() => ShowTheather(theather.Id)"><i class="bi bi-eye-fill"></i></a>
+                                        <a class="btn btn-outline-primary mt-auto"><i class="bi bi-pen"></i></a>
+                                        <a class="btn btn-outline-primary mt-auto"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" @onclick="CerrarModal">Cerrar</button>
                             </div>
                         </div>
-                    </div>
+                    }
+
                 </div>
-            }
-     
-    
-     }
+            </div>
+        }
+
+
+
+
+    }
 
 }
 
-
 @code {
     public ICollection<TheatherDto>? Theathers { get; set; }
-
     public ICollection<SeatDto> Seats { get; set; } = default!;
-    private bool mostrarModal = false;
     private TheatherDto? theaterSeleccionado { get; set; }
-
     public bool Mostrar { get; set; }
 
 
-    private void MostrarModal(TheatherDto theather)
-    {
 
 
-    }
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         await Load();
     }
 
+
+
+    private void ShowTheather(int id)
+    {
+        NavigationManager.NavigateTo($"/theathers/detail/{id}");
+    }
 
 
 
@@ -162,7 +133,6 @@
     private async void SeleccionarTheater(TheatherDto theather)
     {
         theaterSeleccionado = theather;
-        mostrarModal = true;
 
         var response = await HttpClient.GetFromJsonAsync<ICollection<SeatDto>>($"api/Seats/{theather.Id}");
         if (response != null)
@@ -173,13 +143,6 @@
         // Notificar que ha cambiado el estado
         StateHasChanged();
     }
-
-
-    private void CerrarModal()
-    {
-        mostrarModal = false;
-    }
-
 
 
 

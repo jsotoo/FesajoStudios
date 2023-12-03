@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DO0/lgpMTsBNfknlowHdE+NHOg17bNAoW7d79euhdbI=",
+  "Hash": "UDBkZrfWB/DYMNa701oOSKghJ1GlLPpmDudXmk5yQHc=",
   "Source": "FesajoStudios.Server",
   "BasePath": "_content/FesajoStudios.Server",
   "Mode": "Default",
@@ -8364,6 +8364,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\sow.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\theather.jpg",
+      "SourceId": "FesajoStudios.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\",
+      "BasePath": "_content/FesajoStudios.Server",
+      "RelativePath": "uploads/theather.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\theather.jpg"
     }
   ]
 }

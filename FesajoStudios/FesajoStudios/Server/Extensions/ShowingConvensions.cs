@@ -54,7 +54,30 @@ namespace FesajoStudios.Server.Extensions
             return result ?? new ShowingDtoResponse(); 
         }
 
+        public static IEnumerable<ShowingDto> ConvertToDtoGetShowingsByTheatherId(this IEnumerable<Showing> showings,
+                                                           IEnumerable<Movie> movies,
+                                                           IEnumerable<Theather> theathers, int id)
+        {
+            return (from movie in movies
 
+                    join showing in showings on movie.Id equals showing.MovieId
+                    join theather in theathers on showing.TheatherId equals theather.Id
+                    where theather.Id == id
+                    select new ShowingDto
+                    {
+                        Id = showing.Id,
+                        StartDate = showing.StartDate,
+                        EndDate = showing.EndDate,
+                        Theather = theather.Name,
+                        Movie = movie.Title,
+                        MovieId = movie.Id,
+                        TheatherId = theather.Id
+
+
+                    })
+                    .ToList();
+
+        }
 
 
 

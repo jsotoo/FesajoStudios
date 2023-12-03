@@ -16,5 +16,9 @@ namespace FesajoStudios.Shared.Request
 
         public string? Showing { get; set; } 
         public int ShowingId { get; set; }
+
+        public string? Theather { get; set; }
+        public int TheatherId { get; set; }
+
     }
 }

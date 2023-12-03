@@ -22,5 +22,9 @@ namespace FesajoStudios.Shared.Reponse
         public string? Client { get; set;}
 
         public string? movieImage { get; set; }
+
+        public int TheatherId { get; set; }
+
+
     }
 }

@@ -57,66 +57,7 @@ else
 
 
 
-    <ModalSeatComponent IsVisible="@modalVisible">
-    <!-- Contenido de la ventana modal, como un formulario de edición -->
-    
-        <EditForm Model="Seat" OnValidSubmit="Grabar">
-            
-                <!-- Contenido del modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Detalles de la sala de cine</h4>
-                    <button type="button" class="close" @onclick="CerrarModal">&times;</button>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col">
-                        <div class="col-sm-4">
-                            <label class="col-sm-2 form-label" style="margin-left: 15px;" for="seatcode">Numero:</label>
-                            <input type="text" id="seatcode" class="form-control" style="margin-left: 15px;" @bind-value="Seat.SeatCode" disabled />
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="col-sm-2 form-label" style="margin-left: 15px;" for="seatshowing">Función:</label>
-                        <div class="col-sm-4">
-                            <InputSelect @bind-Value="Seat.ShowingId" id="seatshowing" class="form-select" style="margin-left: 15px;" disabled>
-                                <option>-Seleccione la función</option>
-                                @foreach (var item in Showings)
-                                {
-                                    <option value="@item.Id">@item.Movie</option>
-                                }
-                            </InputSelect>
-                        </div>
-                    </div>
-                </div>
-   
-
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="col-sm-2 form-label" style="margin-left: 15px;" for="seattype">Tipo:</label>
-                        <div class="col-sm-4">
-                            <InputSelect @bind-Value="Seat.SeatTypeId" id="seattype" class="form-select" style="margin-left: 15px;">
-                                <option>-Seleccione el tipo de silla</option>
-                                @foreach (var item in SeatsType)
-                                {
-                                    <option value="@item.Id">@item.Description</option>
-                                }
-                            </InputSelect>
-                        </div>
-                    </div>
-                </div>
-
-
-                <button class="btn btn-secondary" style="margin-left: 15px;" @onclick="() => Edit(Seat.Id)">Editar</button>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @onclick="CerrarModal">Cerrar</button>
-                </div>
-        </EditForm>
-   
-
-     </ModalSeatComponent>
+ 
 
 
 

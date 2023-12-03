@@ -15,10 +15,11 @@ namespace FesajoStudios.Entities
         public int SeatTypeId { get; set; }
 
         //Relacion uno a muchos
+        public Theather Theather { get; set; } = default!;
+        public int TheatherId { get; set; }
 
         public Showing Showing { get; set; } = default!;
-        public int ShowingId { get; set;}
-
+        public int ShowingId { get; set; }
 
     }
 }

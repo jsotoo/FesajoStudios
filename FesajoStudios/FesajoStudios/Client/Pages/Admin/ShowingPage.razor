@@ -8,7 +8,8 @@
 
 <h3>Funciones</h3>
 
-<NavLink class="btn btn-success" href="showings/create"><i class="bi bi-patch-plus me-1"></i>Agregar</NavLink>
+
+<button type="button" class="btn btn-primary" @onclick="Add"><i class="bi bi-patch-plus me-1"></i>Agregar</button>
 <button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
 
 
@@ -59,10 +60,87 @@
 }
 
 
+
+<CinemaModal ShowModal="@mostrarModal" TitleModal="Creación de la función">
+    <EditForm Model="Showing" OnValidSubmit="CreateEdit">
+
+        <DataAnnotationsValidator />
+
+        <div class="row row-cols-1 row-cols-md-2 g-2">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label class="col form-label" for="startDate">Fecha de inicio:</label>
+                    <input type="datetime-local" id="startDate" class="form-control" @bind-value="Showing.StartDate" />
+                    <ValidationMessage For="() => Showing.StartDate" />
+                </div>
+                <div class="mb-3 row">
+                    <label class="col form-label" for="endDate">Fecha fin:</label>
+                    <input type="datetime-local" id="endDate" class="form-control" @bind-value="Showing.EndDate" />
+                    <ValidationMessage For="() => Showing.EndDate" />
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="col form-label" for="movie">Pelicula:</label>
+                        <div class="col">
+                            <InputSelect @bind-Value="Showing.MovieId" id="movie" class="form-select">
+                                <option value="0">-Seleccione la pelicula</option>
+                                @foreach (var item in Movies)
+                                {
+                                    <option value="@item.Id">@item.Title</option>
+                                }
+                            </InputSelect>
+                            <!-- Validación de la película -->
+                            @if (string.IsNullOrEmpty(Showing.MovieId.ToString()))
+                            {
+                                <ValidationMessage For="() => Showing.MovieId" />
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="col form-label" for="theather">Sala de cine:</label>
+                        <div class="col">
+                            <InputSelect @bind-Value="Showing.TheatherId" id="theather" class="form-select">
+                                <option value="0">-Seleccione la sala de cine</option>
+                                @foreach (var item in Theathers)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </InputSelect>
+                            @if (string.IsNullOrEmpty(Showing.TheatherId.ToString()))
+                            {
+                                <ValidationMessage For="() => Showing.TheatherId" />
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+            <button type="submit" class="btn btn-primary w-25">@labelbutton</button>
+        </div>
+
+        <ValidationSummary />
+
+    </EditForm>
+</CinemaModal>
+
+
+
+
+
 @code {
     public ICollection<ShowingDto>? Showings { get; set; }
+    public ShowingDtoRequest Showing { get; set; } = new ShowingDtoRequest();
     public bool Mostrar { get; set; }
-
+    private bool mostrarModal = false;
+    public ICollection<MovieDto> Movies { get; set; } = new List<MovieDto>();
+    public ICollection<TheatherDto> Theathers { get; set; } = new List<TheatherDto>();
+    public bool IsEdit { get; set; }
+    public string labelbutton = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -73,6 +151,7 @@
     {
         try
         {
+            CerrarModal();
             Mostrar = true;
             var response = await HttpClient.GetFromJsonAsync<ICollection<ShowingDto>>("api/Showings");
             if (response != null)
@@ -86,13 +165,12 @@
         }
     }
 
-    private void Editar(int id)
-    {
-        NavigationManager.NavigateTo($"/showings/edit/{id}");
-    }
+
 
     private async Task Eliminar(int id)
     {
+        CerrarModal();
+
         var result = await Swal.FireAsync(new SweetAlertOptions("Desea eliminar el registro?")
             {
                 Title = "Eliminar",
@@ -107,7 +185,150 @@
         }
     }
 
+    private async Task InicializarListas()
+    {
+        var responseMovies = await HttpClient.GetFromJsonAsync<ICollection<MovieDto>>("api/Movies");
+        if (responseMovies is not null)
+            Movies = responseMovies;
+
+        var responseTheathers = await HttpClient.GetFromJsonAsync<ICollection<TheatherDto>>("api/Theathers");
+        if (responseTheathers is not null)
+            Theathers = responseTheathers;
+    }
+
+    private async Task Add()
+    {
+        try
+        {
+            labelbutton = "Agregar";
+            Showing = new ShowingDtoRequest()
+                {
+                    MovieId = 0,
+                    TheatherId = 0,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now
+            };
+
+            await InicializarListas();
+
+            // Showing.StartDate = DateTime.Now;
+            // Showing.EndDate = DateTime.Now;
+
+            AbrirModal();
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    private async Task Editar(int id)
+    {
+        try
+        {
+            labelbutton = "Editar";
+            IsEdit = true;
+            var response = await HttpClient.GetAsync($"api/Showings/{id}");
+            response.EnsureSuccessStatusCode();
+
+            Showing = (await response.Content.ReadFromJsonAsync<ShowingDtoRequest>())!;
+
+            await InicializarListas();
+
+            AbrirModal();
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
 
 
 
+    private async Task CreateEdit()
+    {
+        try
+        {
+            if (IsEdit == true)
+            {
+                
+                await HttpClient.PutAsJsonAsync($"api/Showings/{Showing.Id}", Showing);
+                ToastService.ShowInfo("Actualización de la función correctamente");
+                CerrarModal();
+            }
+            else
+            {
+              
+                var response = await HttpClient.PostAsJsonAsync("api/Showings", Showing);
+                var newShowingId = 0;
+                if (response.IsSuccessStatusCode)
+                {
+                    // La solicitud fue exitosa, intenta obtener el ID del nuevo booking del cuerpo de la respuesta.
+                    var showingResponse = await response.Content.ReadFromJsonAsync<TicketDtoResponse>();
+
+                    if (showingResponse != null)
+                    {
+                        newShowingId = showingResponse.Id;
+                        await GenerateTicketsByShowing(newShowingId);
+                        CerrarModal();
+                    }
+
+                }
+
+                ToastService.ShowInfo("Registro de función creada correctamente");
+            }
+
+            await Load();
+           
+
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+    private void AbrirModal()
+    {
+        mostrarModal = true;
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+
+
+    private async Task GenerateTicketsByShowing(int IdShowing)
+    {
+        var ticketAdult = new TicketDtoResponse()
+            {
+                TicketTypeId = 1,
+                Price = 15000,
+                ShowingId = IdShowing
+
+            };
+
+        await HttpClient.PostAsJsonAsync("api/Tickets", ticketAdult);
+
+        var ticketChild = new TicketDtoResponse()
+            {
+                TicketTypeId = 2,
+                Price = 8000,
+                ShowingId = IdShowing
+
+            };
+
+        await HttpClient.PostAsJsonAsync("api/Tickets", ticketChild);
+
+        var ticketStudent = new TicketDtoResponse()
+            {
+                TicketTypeId = 3,
+                Price = 10000,
+                ShowingId = IdShowing
+
+            };
+        await HttpClient.PostAsJsonAsync("api/Tickets", ticketStudent);
+
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using FesajoStudios.Entities;
 using FesajoStudios.Repositories.Interfaces;
+using FesajoStudios.Server.Extensions;
 using FesajoStudios.Server.Services;
 using FesajoStudios.Shared;
 using FesajoStudios.Shared.Request;
@@ -14,10 +15,12 @@ namespace FesajoStudios.Server.Controllers
     {
         private readonly IMovieRepository _repository;
         private readonly IFileUploader _fileUploader;
-        public MoviesController(IMovieRepository repository, IFileUploader fileUploader)
+        private readonly IShowingRepository _showingRepository;
+        public MoviesController(IMovieRepository repository, IFileUploader fileUploader, IShowingRepository showingRepository)
         {
             _repository = repository;
             _fileUploader = fileUploader;
+            _showingRepository = showingRepository;
         }
 
         [HttpGet]
@@ -32,6 +35,17 @@ namespace FesajoStudios.Server.Controllers
             return Ok(await _repository.FindAsync(id));
         }
 
+        [HttpGet("GetMoviesByShowingId/{id:int}")]
+        [ActionName("GetMoviesByShowingId")]
+        public async Task<IActionResult> GetMoviesByShowingId(int id)
+        {
+            var movies = await _repository.ListAsync();
+            var showings = await _showingRepository.ListAsync();
+
+            var movieDto = movies.GetMoviesByShowingIdConvertToDto(showings, id);
+
+            return Ok(movieDto);
+        }
 
         [HttpPost]
         [Authorize]

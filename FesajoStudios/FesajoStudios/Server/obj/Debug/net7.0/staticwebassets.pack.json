@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\uploads\\sow.jpg"
     },
     {
+      "Id": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\theather.jpg",
+      "PackagePath": "staticwebassets\\uploads\\theather.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FesajoStudios.Server.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

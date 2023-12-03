@@ -20,10 +20,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ModalSeatComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kYWxTZWF0Q29tcG9uZW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MovieEdit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,20 +36,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2VhdHNQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingCreate.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ0NyZWF0ZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingEdit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ0VkaXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherCreate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherEdit.razor]
@@ -100,12 +92,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxUaGVhdGhlcnNVc2VyRGV0YWlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MoviesConfig.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vdmllc0NvbmZpZy5yYXpvcg==
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/CinemaModal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENpbmVtYU1vZGFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/ShowingConfig.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNob3dpbmdDb25maWcucmF6b3I=
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MoviesConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vdmllc0NvbmZpZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/SurveyPrompt.razor]

@@ -71,7 +71,20 @@ namespace FesajoStudios.Server.Controllers
 
         }
 
+        [HttpGet("GetShowingsByTheatherId/{id:int}")]
+        [ActionName("GetShowingsByTheatherId")]
+        public async Task<IActionResult> GetShowingsByTheatherId(int id)
+        {
 
+
+            var showings = await _showingrepository.ListAsync();
+            var movies = await _movierepository.ListAsync();
+            var theathers = await _theatherRepository.ListAsync();
+
+            var showingDto = showings.ConvertToDtoGetShowingsByTheatherId(movies, theathers, id);
+            return Ok(showingDto);
+
+        }
 
 
         [HttpPost]
@@ -87,7 +100,7 @@ namespace FesajoStudios.Server.Controllers
 
             await _showingrepository.AddAsync(showing);
 
-            return Ok();
+            return Ok(new { Id = showing.Id });
         }
 
         [HttpPut("{id:int}")]
@@ -103,7 +116,7 @@ namespace FesajoStudios.Server.Controllers
             field.StartDate = request.StartDate;
             field.EndDate = request.EndDate;
             field.MovieId = request.MovieId;
-            field.TheatherId = request.MovieId;
+            field.TheatherId = request.TheatherId;
 
             await _showingrepository.UpdateAsync();
 

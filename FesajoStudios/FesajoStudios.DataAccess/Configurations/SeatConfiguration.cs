@@ -15,6 +15,7 @@ namespace FesajoStudios.DataAccess.Configurations
         {
             builder.Property(x => x.SeatCode)
                 .HasMaxLength(10);
+           
 
         }
     }

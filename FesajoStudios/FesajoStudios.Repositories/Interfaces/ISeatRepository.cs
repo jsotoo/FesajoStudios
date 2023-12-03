@@ -9,7 +9,7 @@ namespace FesajoStudios.Repositories.Interfaces
 {
     public interface ISeatRepository : IRepositoryBase<Seat>
     {
-        Task<ICollection<Seat>> GetSeatsFromShowingId(int id);
+       
         Task UpdateAsyncEntity(Seat seat);
 
     }

@@ -2,6 +2,7 @@
 using FesajoStudios.Repositories.Interfaces;
 using FesajoStudios.Server.Extensions;
 using FesajoStudios.Server.Services;
+using FesajoStudios.Shared.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FesajoStudios.Server.Controllers
@@ -44,6 +45,26 @@ namespace FesajoStudios.Server.Controllers
             }
             return Ok(ticketDto);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(TicketDtoRequest request)
+        {
+            var ticket = new Ticket()
+            {
+                TicketTypeId = request.TicketTypeId,
+                Price = request.Price,
+                ShowingId = request.ShowingId,
+           
+            };
+
+            await _repositoryTicket.AddAsync(ticket);
+
+            return Ok();
+        }
+
+
+
+
 
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Azure.Core;
 using FesajoStudios.Entities;
+using FesajoStudios.Repositories.Implementations;
 using FesajoStudios.Repositories.Interfaces;
 using FesajoStudios.Server.Extensions;
 using FesajoStudios.Server.Services;
 using FesajoStudios.Shared;
+using FesajoStudios.Shared.Reponse;
 using FesajoStudios.Shared.Request;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,26 +22,29 @@ namespace FesajoStudios.Server.Controllers
         private readonly IShowingRepository _repositoryShowing;
         private readonly IMovieRepository _repositoryMovie;
         private readonly ISeatXBookingRepository _repositorySeatXBooking;
+        private readonly ITheatherRepository _repositoryTheather;
 
-        public SeatsController(ISeatRepository repository, ISeatTypeRepository repositoryTpe, IShowingRepository repoShowing, IMovieRepository repoMovie, ISeatXBookingRepository repositorySeatXBooking)
+        public SeatsController(ISeatRepository repository, ISeatTypeRepository repositoryTpe, IShowingRepository repoShowing, IMovieRepository repoMovie, ISeatXBookingRepository repositorySeatXBooking, ITheatherRepository repositoryTheather)
         {
             _repository = repository;
             _repositorySeatType = repositoryTpe;
             _repositoryShowing = repoShowing;
             _repositoryMovie = repoMovie;
             _repositorySeatXBooking = repositorySeatXBooking;
+            _repositoryTheather = repositoryTheather;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            
-           var seats = await _repository.ListAsync();
-           var seatType = await _repositorySeatType.ListAsync();
-           var showing = await _repositoryShowing.ListAsync();
-           var movie = await _repositoryMovie.ListAsync();
 
-            var seatDto = seats.GetConvertToDto(seatType,showing, movie);
+            var seats = await _repository.ListAsync();
+            var seatType = await _repositorySeatType.ListAsync();
+            var theather = await _repositoryTheather.ListAsync();
+            var showing = await _repositoryShowing.ListAsync();
+            var movie = await _repositoryMovie.ListAsync();
+
+            var seatDto = seats.GetConvertToDto(seatType, theather, showing, movie);
             return Ok(seatDto);
 
         }
@@ -51,10 +56,11 @@ namespace FesajoStudios.Server.Controllers
             {
                 var seats = await _repository.ListAsync();
                 var seatType = await _repositorySeatType.ListAsync();
+                var theather = await _repositoryTheather.ListAsync();
                 var showing = await _repositoryShowing.ListAsync();
                 var movie = await _repositoryMovie.ListAsync();
 
-                var seatDto = seats.GetByIdConvertToDto(seatType, showing, movie, id);
+                var seatDto = seats.GetByIdConvertToDto(seatType, theather, showing, movie, id);
 
                 if (seatDto == null)
                 {
@@ -80,9 +86,12 @@ namespace FesajoStudios.Server.Controllers
                 var seats = await _repository.ListAsync();
                 var seatType = await _repositorySeatType.ListAsync();
                 var showing = await _repositoryShowing.ListAsync();
+                var theather = await _repositoryTheather.ListAsync();
                 var movie = await _repositoryMovie.ListAsync();
 
-                var seatDto = seats.GetByShowingIdConvertToDto(seatType, showing, movie, id);
+                var seatDto = seats.GetByShowingIdConvertToDto(seatType, theather, showing, movie, id);
+
+                var totalDto = seatDto.Count();
 
                 if (seatDto == null)
                 {
@@ -109,8 +118,9 @@ namespace FesajoStudios.Server.Controllers
                 var seatType = await _repositorySeatType.ListAsync();
                 var showing = await _repositoryShowing.ListAsync();
                 var movie = await _repositoryMovie.ListAsync();
+                var theather = await _repositoryTheather.ListAsync();
 
-                var seatDto = seats.GetByBookingIdConvertToDto(seatXBooking,seatType, showing, movie, id);
+                var seatDto = seats.GetByBookingIdConvertToDto(seatXBooking, seatType,theather, showing, movie, id);
 
                 if (seatDto == null)
                 {
@@ -168,7 +178,7 @@ namespace FesajoStudios.Server.Controllers
 
                 // Actualiza propiedades que no son clave.
                 registro.SeatTypeId = request.SeatTypeId;
-                registro.ShowingId = request.ShowingId;
+                //registro.ShowingId = request.ShowingId;
                 registro.SeatCode = request.SeatCode;
 
                 await _repository.UpdateAsyncEntity(registro);
@@ -180,6 +190,24 @@ namespace FesajoStudios.Server.Controllers
                 // Loggea la excepción o devuelve información detallada en la respuesta.
                 return StatusCode(500, $"Error interno del servidor: {ex.Message} \n\nInner Exception: {ex.InnerException?.Message}");
             }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Post(SeatDtoRequest request)
+        {
+            var seat = new Seat()
+            {
+                SeatCode = request.SeatCode,
+                SeatTypeId = request.SeatTypeId,
+                ShowingId = request.ShowingId,
+                TheatherId = request.TheatherId,
+
+            };
+
+            await _repository.AddAsync(seat);
+
+            return Ok();
         }
 
 

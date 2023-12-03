@@ -1,0 +1,431 @@
+﻿@page "/theathers/detail/{Id:int}"
+@inject IToastService ToastService
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
+<h3>Sala @Id </h3>
+<h3> Esta sala tiene capacidad de  @Theather.Capacity sillas</h3>
+
+<style>
+
+    .cuadrado {
+        width: 60px;
+        height: 60px;
+        background-color: lightgreen;
+        margin: 5px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .cuadrado.seleccionado {
+            background-color: red;
+            color: white;
+        }
+
+    .cuadrado-ocupado {
+        width: 60px;
+        height: 60px;
+        background-color: gray;
+        margin: 5px;
+        float: left;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .rectangulo {
+        width: 1120px;
+        height: 60px;
+        background-color: gray;
+        margin: 5px auto;
+        clear: both;
+    }
+
+
+    .column-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .columna {
+        width: 750px;
+        float: left;
+    }
+
+    .progress-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000; /* Asegura que esté encima de otros elementos */
+        background: rgba(255, 255, 255, 0.8); /* Fondo blanco difuminado */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el overlay */
+    }
+
+    .progress-bar-overlay {
+        width: 100%;
+    }
+
+</style>
+
+
+<br />
+
+@if(ShowMovie ==true){
+    <div class="row align-items-center alert alert-info">
+        <div class="col-md-2">
+            <!-- Add an image in the first column -->
+            <img src="@Movie.UrlImage" alt="@Movie.Title" class="img-fluid" style="max-width: 150px; max-height: 200px;">
+        </div>
+        <div class="col-md-2">
+            
+            <!-- Add relevant text in the second column -->
+
+            <p> <strong>Titulo:</strong> @Movie.Title </p>
+            <p> <strong>Duración:</strong> @Movie.Duration</p>
+            <p> <strong>Director:</strong> @Movie.Director </p>
+            <p> <strong>Genero:</strong> @Movie.Genre</p>
+            <p><strong>Clasificación:</strong> @Movie.Rating</p>
+            <p><strong>Fecha de lanzamiento:</strong> @Movie.ReleaseDate</p>
+    
+            
+        </div>
+
+        @if (ShowButtonGenerateSeats == true)
+        {
+
+            <div class="col-md-2">
+                <div style="display: inline-block;">
+                    <p><strong>Esta función no tiene sillas generadas. Para generarlas hacer click al botón</strong></p>
+                    <button class="btn btn-primary" @onclick="() => GenerateSeatsByFunction(selectedShowingId, Id)">Generar sillas por función</button>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+
+}
+
+
+
+<div style="text-align: right;">
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: lightgreen; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento disponible</p>
+    </div>
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: gray; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento ocupado/reservado</p>
+    </div>
+</div>
+
+
+
+<br />
+
+@if (ShowingsByTheather != null && ShowingsByTheather.Count >= 1)
+{
+    <label class="col-sm-2 form-label" for="movie">Funciones por sala:</label>
+    <div class="col-sm-4">
+        <InputSelect class="form-select" ValueChanged="@((int value) => { GetShowingsByTheather(value); selectedShowingId = value; })" ValueExpression="@(()=>valor)" Value="valor">
+            <option value="">-Seleccione la función</option>
+            @foreach (var showing in ShowingsByTheather)
+            {
+                <option value="@showing.Id">@($"{showing.Movie} | {showing.StartDate} - {showing.EndDate}")</option>
+            }
+        </InputSelect>
+    </div>
+}
+else
+{
+  
+    <p>No hay funciones disponibles</p>
+}
+
+
+
+@if(ShowSeats == true && Seats.Count > 0)
+
+{
+
+    <br />
+    <br />
+    <div class="rectangulo"></div>
+
+    <br />
+    <br />
+
+    <div class="column-container">
+        @foreach (var row in ChunkedSeats)
+        {
+            <div class="columna">
+                <div class="contenedor-cuadricula">
+                    @foreach (var seat in row)
+                    {
+                        @if (seat.SeatTypeId != 2)
+                        {
+                            <div class="cuadrado">
+                                @seat.SeatCode
+
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div class="cuadrado-ocupado" id="cuadrado_@seat.SeatCode" @onclick="() => ShowReservation(seat.Id)">
+                                @seat.SeatCode
+                            </div>
+                        }
+
+                    }
+                </div>
+            </div>
+        }
+    </div>
+} 
+ else
+{
+    <p>Esta sala no tiene sillas aún desea crearlas?</p>
+}
+
+
+
+
+@if (Seats != null)
+{
+
+<CinemaModal ShowModal="@mostrarModal" TitleModal="Detalles de la silla reservada">
+    <div>
+        <p>Silla reservada</p>
+
+        <div class="cinema">
+            <div class="row">
+                    <p>  <strong>A Nombre:</strong> @Booking.Client </p>
+                    <p> <strong>Función:</strong> @Booking.Showing </p>
+                    <p><strong>Fecha de reserva:</strong> @Booking.ReservationDate </p>
+                    <p><strong>Tipo de Reserva:</strong> @Booking.BookingType </p>
+               
+            </div>
+        </div>
+    </div>
+</CinemaModal>
+
+
+
+}
+
+@if (ShowPercentage == true){
+<div class="progress-overlay">
+    <div class="progress-bar progress-bar-overlay" role="progressbar" style="width: @progressPercentage%;" aria-valuenow="@progressPercentage" aria-valuemin="0" aria-valuemax="100"></div>
+    <div style="text-align: center; margin-top: 10px;">
+        <strong>Cargando...</strong> @progressPercentage%
+    </div>
+</div>
+}
+
+
+
+<br />
+<br>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    public List<ShowingDtoResponse> ShowingsByTheather = new List<ShowingDtoResponse>();
+    public List<SeatDtoResponse> Seats = new List<SeatDtoResponse>();
+    public List<List<SeatDtoResponse>> ChunkedSeats = new List<List<SeatDtoResponse>>();
+    public BookingDtoResponse Booking = new BookingDtoResponse();
+    public TheatherDto Theather = new TheatherDto();
+    public MovieDtoResponse Movie = new MovieDtoResponse();
+    private int opcionSeleccionada;
+    private int IdShowing { get; set; }
+    public bool ShowSeats { get; set; }
+    public bool ShowMovie { get; set; }
+    private int valor;
+    private bool mostrarModal = false;
+    public bool ShowButtonGenerateSeats { get; set; }
+    public bool ShowPercentage { get; set; }
+    private double progressPercentage;
+    private int selectedShowingId;
+
+    protected async override Task OnInitializedAsync()
+    {
+
+        var responseTheathers = await HttpClient.GetFromJsonAsync<TheatherDto>($"api/Theathers/{Id}");
+
+
+        if (responseTheathers != null)
+        {
+            Theather = responseTheathers;
+        }
+
+
+        var responseShowings = await HttpClient.GetFromJsonAsync<List<ShowingDtoResponse>>($"api/Showings/GetShowingsByTheatherId/{Id}");
+
+
+        if (responseShowings != null)
+        {
+            ShowingsByTheather = responseShowings;
+        }
+
+
+    }
+
+
+    private async void GetShowingsByTheather(int value)
+    {
+
+        var responseSeats = await HttpClient.GetFromJsonAsync<List<SeatDtoResponse>>($"api/Seats/GetSeatsByShowingId/{value}");
+        var responseMovies = await HttpClient.GetFromJsonAsync<MovieDtoResponse> ($"api/Movies/GetMoviesByShowingId/{value}");
+
+        if (responseSeats != null && responseSeats.Count > 0)
+        {
+            ShowSeats = true;
+            Seats = responseSeats;
+
+            await InvokeAsync(() => ChunkedSeats = Chunk(Seats, 2, 5));
+            ShowButtonGenerateSeats = false;
+            StateHasChanged();
+        }
+        else
+        {
+            ShowSeats = false;
+            ShowButtonGenerateSeats = true;
+            StateHasChanged();
+        }
+
+        if (responseMovies != null)
+        {
+            Movie = responseMovies;
+            ShowMovie = true;
+            StateHasChanged();
+
+        }
+        else
+        {
+
+            ShowMovie = false;
+            StateHasChanged();
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+    private List<List<SeatDtoResponse>> Chunk(List<SeatDtoResponse> source, int rows, int columns)
+    {
+        int totalSeats = source.Count;
+        int seatsPerBlock = totalSeats / (rows * columns);
+
+        List<List<SeatDtoResponse>> result = new List<List<SeatDtoResponse>>();
+
+        for (int row = 0; row < rows; row++)
+        {
+            List<SeatDtoResponse> rowSeats = new List<SeatDtoResponse>();
+
+            for (int col = 0; col < columns; col++)
+            {
+                int startIndex = (row * columns + col) * seatsPerBlock;
+
+                if (startIndex < totalSeats)
+                {
+                    List<SeatDtoResponse> chunk = source.Skip(startIndex).Take(seatsPerBlock).ToList();
+                    rowSeats.AddRange(chunk);
+                }
+            }
+
+            result.Add(rowSeats);
+        }
+
+        return result;
+    }
+
+
+    private async Task ShowReservation(int seatId)
+    {
+
+        var BookingResponse = await HttpClient.GetFromJsonAsync<BookingDtoResponse>($"api/Bookings/GetBySeatIdAndShowingId/{seatId}/{selectedShowingId}");
+
+        if (BookingResponse != null)
+        {
+            AbrirModal();
+            Booking = BookingResponse;
+        }
+
+
+        // Lógica de manejo de evento aquí
+    }
+
+    private void AbrirModal()
+    {
+        mostrarModal = true;
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+
+    private async Task GenerateSeatsByFunction(int ShowingId, int TheatherId)
+    {
+        Console.WriteLine(ShowingId);
+
+        var result = await Swal.FireAsync(new SweetAlertOptions
+            {
+                Title = $"Deseas agregar las {@Theather.Capacity} sillas? ",
+                Icon = SweetAlertIcon.Question,
+                ShowCancelButton = true,
+                ShowConfirmButton = true,
+                CancelButtonText = "Cancelar",
+                ConfirmButtonText= "Aceptar"
+
+            });
+
+        if (result.IsConfirmed)
+        {
+            var quantitySeats = Theather.Capacity;
+         
+            ShowPercentage = true;
+
+            for (int i = 1; i <= quantitySeats; i++)
+            {
+                var Seat = new SeatDto()
+                    {
+                        SeatCode = $"S{Id}-{i}",
+                        TheatherId = Id,
+                        ShowingId = ShowingId,
+                        SeatTypeId = 1
+
+                    };
+
+                await HttpClient.PostAsJsonAsync("api/Seats", Seat);
+
+                progressPercentage = (double) i / quantitySeats * 100;
+                StateHasChanged();
+            }
+          
+            ToastService.ShowSuccess($"La creación de las sillas por la función {Movie.Title}");
+            GetShowingsByTheather(selectedShowingId);
+            
+             ShowPercentage = false;
+        }
+    }
+
+
+
+
+
+
+}

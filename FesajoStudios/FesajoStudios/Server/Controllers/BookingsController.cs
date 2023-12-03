@@ -15,15 +15,19 @@ namespace FesajoStudios.Server.Controllers
         private readonly IShowingRepository _showingRepository;
         private readonly IMovieRepository _movieRepository;
         private readonly IBookingTypeRepository _bookingTypeRepository;
+        private readonly ISeatXBookingRepository _seatXBookingRepository;
 
 
-        public BookingsController(IBookingRepository bookingRepository, IClientRepository clientRepository, IShowingRepository showingRepository, IMovieRepository movieRepository, IBookingTypeRepository bookingTypeRepository)
+
+        public BookingsController(IBookingRepository bookingRepository, IClientRepository clientRepository, IShowingRepository showingRepository, 
+            IMovieRepository movieRepository, IBookingTypeRepository bookingTypeRepository, ISeatXBookingRepository seatXBookingRepository)
         {
             _bookingRepository = bookingRepository;
             _clientRepository = clientRepository;
             _showingRepository = showingRepository;
             _movieRepository = movieRepository;
             _bookingTypeRepository = bookingTypeRepository;
+            _seatXBookingRepository = seatXBookingRepository;
         }
 
 
@@ -63,6 +67,21 @@ namespace FesajoStudios.Server.Controllers
             return Ok(bookingDto);
 
            
+        }
+
+        [HttpGet("GetBySeatIdAndShowingId/{seatId:int}/{showingId:int}")]
+        [ActionName("GetBySeatIdAndShowingId")]
+        public async Task<IActionResult> GetBySeatIdAndShowingId(int seatId, int showingId)
+        {
+            var bookings = await _bookingRepository.ListAsync();
+            var clients = await _clientRepository.ListAsync();
+            var showings = await _showingRepository.ListAsync();
+            var movies = await _movieRepository.ListAsync();
+            var bookingsType = await _bookingTypeRepository.ListAsync();
+            var seatXbooking = await _seatXBookingRepository.ListAsync();
+
+            var bookingDto = bookings.GetBySeatIdAndShowingIdConvertToDto(bookingsType, seatXbooking, clients, showings, movies, seatId, showingId);
+            return Ok(bookingDto);
         }
 
 
