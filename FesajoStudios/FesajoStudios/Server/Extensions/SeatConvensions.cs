@@ -97,7 +97,7 @@ namespace FesajoStudios.Server.Extensions
                     join seatXbooking in seatsXBookings on seat.Id equals seatXbooking.SeatId
                     join seatType in seatsType on seat.SeatTypeId equals seatType.Id
                     join theather in theathers on seat.TheatherId equals theather.Id
-                    join showing in showings on theather.Id equals showing.TheatherId
+                    join showing in showings on seat.ShowingId equals showing.Id
                     join movie in movies on showing.MovieId equals movie.Id
                     where seatXbooking.BookingId == id
                     select new SeatDtoResponse

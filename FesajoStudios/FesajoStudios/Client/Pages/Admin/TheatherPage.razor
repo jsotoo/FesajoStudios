@@ -8,7 +8,9 @@
 
 <h3>Salas</h3>
 
-<NavLink class="btn btn-success" href="theathers/create"><i class="bi bi-patch-plus me-1"></i>Agregar</NavLink>
+@* <NavLink class="btn btn-success" href="theathers/create"><i class="bi bi-patch-plus me-1"></i>Agregar</NavLink> *@
+
+<button type="button" class="btn btn-success" @onclick="Add"><i class="bi bi-arrow-clockwise me-1"></i>Agregar</button>
 <button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
 
 
@@ -48,8 +50,8 @@
                                 <div class="card-footer">
                                     <div class="text-center">
                                         <a class="btn btn-outline-primary mt-auto" @onclick="() => ShowTheather(theather.Id)"><i class="bi bi-eye-fill"></i></a>
-                                        <a class="btn btn-outline-primary mt-auto"><i class="bi bi-pen"></i></a>
-                                        <a class="btn btn-outline-primary mt-auto"><i class="bi bi-trash"></i></a>
+                                        <a class="btn btn-outline-primary mt-auto" @onclick="() =>Editar(theather.Id)"><i class="bi bi-pen"></i></a>
+                                        <a class="btn btn-outline-primary mt-auto" @onclick="() =>Eliminar(theather.Id)"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -67,14 +69,46 @@
 
 }
 
+
+<CinemaModal ShowModal="@mostrarModal" TitleModal="Creación de la sala">
+    <EditForm Model="Theather" OnValidSubmit="CreateEdit">
+
+        <DataAnnotationsValidator />
+
+        <div class="row row-cols-1 row-cols-md-2 g-2">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label class="col form-label" for="Name">Nombre de sala:</label>
+                    <input type="text" id="Name" class="form-control" @bind-value="Theather.Name" />
+                    <ValidationMessage For="() => Theather.Name" />
+                </div>
+                <div class="mb-3 row">
+                    <label class="col form-label" for="capacity">Capacidad:</label>
+                    <input type="number" id="capacity" class="form-control" @bind-value="Theather.Capacity" />
+                    <ValidationMessage For="() => Theather.Capacity" />
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+            <button type="submit" class="btn btn-primary w-25">@labelbutton</button>
+        </div>
+
+        <ValidationSummary />
+
+    </EditForm>
+</CinemaModal>
+
+
+
+
 @code {
     public ICollection<TheatherDto>? Theathers { get; set; }
     public ICollection<SeatDto> Seats { get; set; } = default!;
-    private TheatherDto? theaterSeleccionado { get; set; }
+    private TheatherDto Theather = new TheatherDto();
     public bool Mostrar { get; set; }
-
-
-
+    private bool mostrarModal = false;
+    public string labelbutton = "";
+    public bool IsEdit { get; set; }
 
 
     protected override async Task OnInitializedAsync()
@@ -109,13 +143,57 @@
         }
     }
 
-    private void Editar(int id)
+
+    private void Add()
     {
-        NavigationManager.NavigateTo($"/theathers/edit/{id}");
+        try
+        {
+            labelbutton = "Agregar";
+            Theather = new TheatherDto()
+                {
+                    Name = "",
+                    Capacity = 0
+                };
+
+            // Operación síncrona, si es necesario
+
+            AbrirModal();
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+
+
+
+    private async Task Editar(int id)
+    {
+       // NavigationManager.NavigateTo($"/theathers/edit/{id}");
+
+        try
+        {
+            labelbutton = "Editar";
+            IsEdit = true;
+            var response = await HttpClient.GetAsync($"api/Theathers/{id}");
+            response.EnsureSuccessStatusCode();
+
+            Theather = (await response.Content.ReadFromJsonAsync<TheatherDto>())!;
+
+            AbrirModal();
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+
+
+
     }
 
     private async Task Eliminar(int id)
     {
+        CerrarModal();
         var result = await Swal.FireAsync(new SweetAlertOptions("Desea eliminar el registro?")
             {
                 Title = "Eliminar",
@@ -132,7 +210,7 @@
 
     private async void SeleccionarTheater(TheatherDto theather)
     {
-        theaterSeleccionado = theather;
+        Theather = theather;
 
         var response = await HttpClient.GetFromJsonAsync<ICollection<SeatDto>>($"api/Seats/{theather.Id}");
         if (response != null)
@@ -144,7 +222,40 @@
         StateHasChanged();
     }
 
+    private async Task CreateEdit()
+    {
+        try
+        {
+            if (IsEdit == true)
+            {
+
+                await HttpClient.PutAsJsonAsync($"api/Theathers/{Theather.Id}", Theather);
+                ToastService.ShowInfo("Actualización de la función correctamente");
+                
+            }
+            else
+            {
+                await HttpClient.PostAsJsonAsync("api/Theathers", Theather);
+                ToastService.ShowInfo("Se generó correctamente la sala");
+            }
+            CerrarModal();
+            await Load();
 
 
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+    }
+    private void AbrirModal()
+    {
+        mostrarModal = true;
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
 
 }
