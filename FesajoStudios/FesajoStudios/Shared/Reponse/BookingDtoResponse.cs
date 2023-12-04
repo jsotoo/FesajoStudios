@@ -25,6 +25,6 @@ namespace FesajoStudios.Shared.Reponse
 
         public int TheatherId { get; set; }
 
-
+        public decimal Total { get; set; }
     }
 }

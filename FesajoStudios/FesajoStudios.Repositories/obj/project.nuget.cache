@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "g16Kv2Y9hAGU2QmfpzDp1qbdolMg25iLH5X/bjjiXsgJz9SFDW7ZreG2V6TH7VxGuDDQZN4dVT58cMAJzENa1Q==",
+  "dgSpecHash": "YtDkBH5JG5gDM3GDPEflO9b8Jn5ePAGimywto91jQLfStiGSImWbkVJnVviBDGVu6pZZcp+3Vbe0C1+huOVY6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JONATHAN\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\JONATHAN\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\JONATHAN\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
     "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.13\\microsoft.aspnetcore.cryptography.internal.7.0.13.nupkg.sha512",
     "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.13\\microsoft.aspnetcore.cryptography.keyderivation.7.0.13.nupkg.sha512",
     "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.13\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.13.nupkg.sha512",

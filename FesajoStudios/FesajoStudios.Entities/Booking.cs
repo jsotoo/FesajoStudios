@@ -21,7 +21,7 @@ namespace FesajoStudios.Entities
         public Client Client { get; set; } = default!;
         public int ClientId { get; set; }
 
-
+        public decimal Total { get; set; }
 
     }
 }

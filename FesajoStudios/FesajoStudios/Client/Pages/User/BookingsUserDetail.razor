@@ -26,7 +26,7 @@
                         <li><strong>Silla reservada:</strong> @item.SeatCode</li>
                         <li><strong>Silla Estado:</strong> @item.SeatType</li>
                     }
-
+                    <li><strong>Total a pagar:</strong> @Booking.Total</li>
                     <li><strong>Detalles Adicionales:</strong> Tu reserva está confirmada. ¡Esperamos verte pronto!</li>
                 </ul>
                 <hr>
@@ -41,7 +41,9 @@
         </div>
     </div>
 
-    <li><a href="/Bookings">Volver</a></li>
+    <div class="d-flex">
+        <NavLink class="btn btn-secondary" href="/Bookings"><i class="bi bi-skip-backward-fill me-1"></i>Volver</NavLink>
+    </div>
 </div>
 
 

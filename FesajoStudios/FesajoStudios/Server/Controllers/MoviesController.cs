@@ -1,4 +1,5 @@
 ﻿using FesajoStudios.Entities;
+using FesajoStudios.Repositories.Implementations;
 using FesajoStudios.Repositories.Interfaces;
 using FesajoStudios.Server.Extensions;
 using FesajoStudios.Server.Services;
@@ -23,11 +24,33 @@ namespace FesajoStudios.Server.Controllers
             _showingRepository = showingRepository;
         }
 
+
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(string? filter)
         {
-            return Ok(await _repository.ListAsync()); //Carga la lista inicializada
+            var lista = await _repository.ListAsync(
+            predicate: p => p.State && p.Title.Contains(filter ?? string.Empty),
+              selector: x => new MovieDto
+              {
+                  Id = x.Id,
+                  Title = x.Title,
+                  Description = x.Description,
+                  Director = x.Director,
+                  Duration = x.Duration,
+                  Genre = x.Genre,
+                  Rating = x.Rating,
+                  ReleaseDate = x.ReleaseDate,
+                  UrlImage = x.UrlImage
+
+
+              }, relations: "");
+
+            return Ok(lista);
         }
+
+
+
+
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)

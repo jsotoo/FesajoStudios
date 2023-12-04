@@ -10,9 +10,10 @@ namespace FesajoStudios.Shared
     public class TheatherDto
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "El nombre de la sala es obligatorio.")]
         public string Name { get; set; } = default!;
-        [Required]
+        
+        [Required(ErrorMessage = "La capacidad o cantidad de sillas de la sala es obligatorio.")]
         public int Capacity { get; set; }
 
     }

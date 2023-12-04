@@ -9,5 +9,6 @@ namespace FesajoStudios.Repositories.Interfaces
 {
     public interface IBookingRepository : IRepositoryBase<Booking>
     {
+        Task<Dashboard> ShowDashboard();
     }
 }

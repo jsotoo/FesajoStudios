@@ -84,6 +84,13 @@ namespace FesajoStudios.Server.Controllers
             return Ok(bookingDto);
         }
 
+        [HttpGet("GetDashBoard")]
+        [ActionName("GetDashBoard")]
+        public async Task<IActionResult> GetDashBoard()
+        {
+            var response = await _bookingRepository.ShowDashboard();
+            return Ok(response);
+        }
 
 
         [HttpPost]
@@ -95,7 +102,9 @@ namespace FesajoStudios.Server.Controllers
                 ClientId = request.ClientId,
                 BookingTypeId = request.BookingTypeId,
                 ReservationDate = request.ReservationDate,
-                ShowingId = request.ShowingId
+                ShowingId = request.ShowingId,
+                Total = request.Total
+                
             };
 
             await _bookingRepository.AddAsync(booking);

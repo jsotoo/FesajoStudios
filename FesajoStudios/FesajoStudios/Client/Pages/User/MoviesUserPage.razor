@@ -5,13 +5,12 @@
 
 <PageTitle>Inicio</PageTitle>
 
-<h1 class="titulo">Escoge tu mejor opcion</h1>
+<h1 class="titulo">Escoge tu mejor pelicula <i class="bi bi-film"></i> </h1>
 <div>
     <div class="row justify-content-center mt-3 mb-4">
         <div class="col-6">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar pelicula" />
- 
+                <input type="text" class="form-control" placeholder="Buscar pelicula" @onkeypress="OnTeclaPresionada"  @bind-value="FindMovie" />
                 <button class="btn btn-secondary" @onclick="GetMovie">
                     <i class="bi bi-search"></i>
                 </button>
@@ -41,14 +40,35 @@
 {
     private ICollection<MovieDtoResponse>? Movies { get; set; }
     private int? CategoriaSeleccionada { get; set; }
-
-    private string Buscar { get; set; } = default!;
+    private string FindMovie { get; set; } = default!;
     public bool IsLoading { get; set; }
 
     private async Task GetMovie()
     {
-       
+        try
+        {
+            IsLoading = true;
+
+            // Asegúrate de que FindMovie esté codificado correctamente en la URL
+            string encodedFilter = Uri.EscapeDataString(FindMovie);
+            string apiUrl = $"api/Movies?filter={encodedFilter}";
+
+            // Imprime la URL generada
+            Console.WriteLine(apiUrl);
+
+            Movies = await HttpClient.GetFromJsonAsync<ICollection<MovieDtoResponse>>(apiUrl);
+        }
+        catch (Exception ex)
+        {
+            ToastService.ShowError(ex.Message);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
     }
+
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -68,25 +88,16 @@
         }
     }
 
-    // private void OnSelectionChange(ChangeEventArgs args)
-    // {
-    //     if (args.Value!.ToString()!.Contains("-"))
-    //     {
-    //         CategoriaSeleccionada = null;
-    //     }
-    //     else
-    //     {
-    //         CategoriaSeleccionada = int.Parse(args.Value.ToString()!);
-    //     }
-    // }
 
-    // private async Task OnTeclaPresionada(KeyboardEventArgs args)
-    // {
-    //     if (args.Key.Equals("Enter", StringComparison.InvariantCultureIgnoreCase))
-    //     {
-    //         await ObtenerCatalogo();
-    //     }
-    // }
+    private async Task OnTeclaPresionada(KeyboardEventArgs args)
+    {
+        if (args.Key.Equals("Enter", StringComparison.InvariantCultureIgnoreCase))
+        {
+            await Task.Delay(100); // Espera breve
+            await GetMovie();
+        }
+    }
+
 
     private void VerDetalle(int id)
     {

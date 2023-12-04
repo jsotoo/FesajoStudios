@@ -13,7 +13,8 @@
 <button type="button" class="btn btn-success" @onclick="Add"><i class="bi bi-arrow-clockwise me-1"></i>Agregar</button>
 <button type="button" class="btn btn-primary" @onclick="Load"><i class="bi bi-arrow-clockwise me-1"></i>Cargar datos</button>
 
-
+<br />
+<br />
 
 
 @if (Mostrar){
@@ -86,6 +87,11 @@
                     <label class="col form-label" for="capacity">Capacidad:</label>
                     <input type="number" id="capacity" class="form-control" @bind-value="Theather.Capacity" />
                     <ValidationMessage For="() => Theather.Capacity" />
+                    @if (string.IsNullOrEmpty(Theather.Capacity.ToString()) || Theather.Capacity == 0)
+                    {
+                        <ValidationMessage For="() => Theather.Capacity" />
+                    }
+
                 </div>
             </div>
         </div>

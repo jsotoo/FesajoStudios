@@ -39,18 +39,18 @@
                 
                     <h1 class="display-5 fw-bolder">Salas disponibles</h1>
 
-            
-                    <table class="table">
+
+                    <table class="table table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Inicio</th>
                                 <th scope="col">Fin</th>
                                 <th scope="col">Sala</th>
-                            
+                                <th scope="col"></th> 
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach (var item in Showings)
+                            @foreach (var item in Showings)
                             {
                                 <tr>
                                     <td>@item.StartDate</td>
@@ -59,17 +59,16 @@
                                     <td><button class="btn btn-secondary" @onclick="() => ShowTheather(item.Id)">Ver detalle</button></td>
                                 </tr>
                             }
-                            
-                        
                         </tbody>
                     </table>
+
                 }
 
 
 
 
                 <div class="d-flex">
-                    <NavLink class="btn btn-secondary" href=""><i class="bi bi-skip-backward-fill me-1"></i>Volver</NavLink>
+                    <NavLink class="btn btn-secondary" href="/MoviesList"><i class="bi bi-skip-backward-fill me-1"></i>Volver</NavLink>
                 </div>
             </div>
         </div>

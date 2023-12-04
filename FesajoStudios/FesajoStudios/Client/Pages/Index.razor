@@ -1,10 +1,92 @@
 ﻿@page "/"
 @attribute [Authorize]
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+<div class="row mt-4">
+    <div class="col-sm-6 mb-3">
+        <div class="card border-5 shadow border-primary p-4">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="text-xs fw-bolder text-primary text-uppercase mb-1">
+                        Total Ventas
+                    </div>
+                    <div class="h5 mb-0 fw-bold text-muted">
+                      $ @Dashboard.TotalSales
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="oi oi-dollar text-secondary" style="font-size:50px"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h1>Hello, world!</h1>
+    <div class="col-sm-6 mb-3">
+        <div class="card border-5 shadow border-success p-4">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="text-xs fw-bolder text-success text-uppercase mb-1">
+                        Cantidad Reservas
+                    </div>
+                    <div class="h5 mb-0 fw-bold text-muted">
+                        $ @Dashboard.TotalBookings
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="oi oi-tags text-secondary" style="font-size:50px"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
-Welcome to your new app.
+    <div class="col-sm-6 mb-3">
+        <div class="card border-5 shadow border-warning p-4">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="text-xs fw-bolder text-warning text-uppercase mb-1">
+                        Cantidad Clientes
+                    </div>
+                    <div class="h5 mb-0 fw-bold text-muted">
+                         $ @Dashboard.TotalClients 
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="oi oi-people text-secondary" style="font-size:50px"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <div class="col-sm-6 mb-3">
+        <div class="card border-5 shadow border-info p-4">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="text-xs fw-bolder text-info text-uppercase mb-1">
+                        Cantidad Peliculas
+                    </div>
+                    <div class="h5 mb-0 fw-bold text-muted">
+                        $ @Dashboard.TotalMovies
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="oi oi-box text-secondary" style="font-size:50px"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+    public DashboardDtoResponse Dashboard { get; set; } = new DashboardDtoResponse();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var responseBookings = await HttpClient.GetFromJsonAsync<DashboardDtoResponse>($"api/Bookings/GetDashBoard");
+        if (responseBookings != null)
+        {
+            Dashboard = responseBookings;
+        }
+    }
+
+}

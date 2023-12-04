@@ -24,5 +24,8 @@ namespace FesajoStudios.Shared.Request
         [JsonPropertyName("clientId")]
         public int ClientId { get; set; }
 
+        [JsonPropertyName("total")]
+        public decimal Total { get; set; }
+
     }
 }

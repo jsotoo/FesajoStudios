@@ -123,6 +123,10 @@ namespace FesajoStudios.DataAccess.Migrations
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
+                    b.Property<decimal>("Total")
+                        .HasPrecision(11, 2)
+                        .HasColumnType("decimal(11,2)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BookingTypeId");

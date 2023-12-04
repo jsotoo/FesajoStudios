@@ -13,7 +13,8 @@ namespace FesajoStudios.DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Booking> builder)
         {
-         
+            builder.Property(x => x.Total)
+                   .HasPrecision(11, 2);
         }
     }
 }

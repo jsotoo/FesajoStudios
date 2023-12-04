@@ -1531,13 +1531,8 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\1kSV+BgO.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\RguMQJ8m.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\E6kkxM8A.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\Pe4ecFyJ.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\QcYHCEXg.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\phDsGRGP.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\JV8PUErp.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\3bbmX1Bv.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\59irktPe.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\+mVRWbLY.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\kLM015TS.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\xeswGrw+.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\iltB5acw.gz
@@ -1556,7 +1551,6 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\ss5daidA.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\Xr6XLPN+.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\v9WtiwjZ.gz
-C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\DsTB9+2T.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\UrXU6U+4.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\jcN3f2+g.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\HQgKyD1W.gz
@@ -1758,3 +1752,13 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\refint\FesajoStudios.Client.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\FesajoStudios.Client.pdb
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\ref\FesajoStudios.Client.dll
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\Pe4ecFyJ.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\QcYHCEXg.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\JV8PUErp.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\3bbmX1Bv.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\+mVRWbLY.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\DsTB9+2T.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\bin\Debug\net7.0\wwwroot\_framework\ChartJs.Blazor.dll
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\bin\Debug\net7.0\wwwroot\_framework\ChartJs.Blazor.dll.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\bin\Debug\net7.0\ChartJs.Blazor.dll
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\kmM7FQZg.gz

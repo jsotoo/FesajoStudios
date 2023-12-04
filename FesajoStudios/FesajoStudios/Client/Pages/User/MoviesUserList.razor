@@ -3,16 +3,16 @@
 @inject NavigationManager NavigationManager
 @attribute [Authorize]
 ﻿<div class="col mb-5">
-    <div class="card h-100 shadow-lg">
+    <div class="card h-100 shadow-lg border border-dark">
         <div class="text-center">
             @if (string.IsNullOrWhiteSpace(Movie.UrlImage))
             {
-                <img class="card-img-top border-dark border-1 movie-card" src="assets/images/sinimagen.jpeg"
+                <img class="card-img-top border-dark border-1 movie-card border border-dark" src="assets/images/sinimagen.jpeg"
                      alt="@Movie.Title" />
             }
             else
             {
-                <img class="card-img-top border-dark border-1 movie-card"
+                <img class="card-img-top border-dark border-1 movie-card border border-dark"
                      src="@Movie.UrlImage" alt="@Movie.Title" />
             }
         </div>

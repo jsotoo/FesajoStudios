@@ -235,3 +235,5 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\bin\Debug\net7.0\ChartJs.Blazor.dll
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Server\bin\Debug\net7.0\Dapper.dll
