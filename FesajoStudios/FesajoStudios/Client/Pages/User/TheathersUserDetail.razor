@@ -7,59 +7,6 @@
 @inject SweetAlertService Swal 
 
 
-<style>
-
-    .cuadrado {
-        width: 60px;
-        height: 60px;
-        background-color: lightgreen;
-        margin: 5px;
-        float: left;
-        text-align: center;
-        cursor: pointer;
-    }
-
-        .cuadrado.seleccionado {
-            background-color: red;
-            color: white;
-        }
-
-    .cuadrado-ocupado {
-        width: 60px;
-        height: 60px;
-        background-color: gray;
-        margin: 5px;
-        float: left;
-        text-align: center;
-        cursor: pointer;
-    }
-
-    .rectangulo {
-        width: 1120px;
-        height: 60px;
-        background-color: gray;
-        margin: 5px auto;
-        clear: both;
-    }
-
-
-    .column-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-
-    .columna {
-        width: 750px;
-        float: left;
-    }
-</style>
-
-
-
-
-
-
 <div style="text-align: right;">
     <div style="display: inline-block;">
         <div class="cuadrado" style="background-color: lightgreen; width: 20px; height: 20px; text-align:right;"></div>
@@ -76,7 +23,6 @@
         <p>Asiento ocupado</p>
     </div>
 </div>
-
 
 
 <br />
@@ -106,8 +52,8 @@
 
 
         @{
-            totalCantidadAsientos = 0; // Restablecer antes de cada iteración
-            totalAsientosElegidos = 0; // Restablecer antes de cada iteración
+            totalCantidadAsientos = 0;
+            totalAsientosElegidos = 0; 
         }
 
 
@@ -296,7 +242,7 @@
         }
         catch (Exception ex)
         {
-            
+
             Console.WriteLine(ex.Message);
         }
     }
@@ -356,77 +302,17 @@
                 var email = (user.FindFirst((ClaimTypes.Email)))!;
                 var client = (await HttpClient.GetFromJsonAsync<ClientResponseDto>($"api/Clients/GetClientByEmail/byemail?email={email.Value}"))!;
 
-                var booking = new BookingDtoRequest()
-                    {
-                        ReservationDate = DateTime.Now,
-                        BookingTypeId = 1,
-                        ShowingId = Id,
-                        ClientId = client.Id,
-                        Total = totalCantidadAsientos
 
-                    };
-
-                var response = await HttpClient.PostAsJsonAsync("api/Bookings", booking);
-                var newBookingId = 0;
-                if (response.IsSuccessStatusCode)
-                {
-                    // La solicitud fue exitosa, intenta obtener el ID del nuevo booking del cuerpo de la respuesta.
-                    var bookingResponse = await response.Content.ReadFromJsonAsync<BookingDtoResponse>();
-
-                    if (bookingResponse != null)
-                    {
-                         newBookingId = bookingResponse.Id;
-                    }
-
-                }
-                else
-                {
-                    // Manejar el error si la solicitud no fue exitosa.
-                    Console.WriteLine($"Error al crear el booking. Código de estado: {response.StatusCode}");
-                }
-
-
-
-
-                    seatsToBooking = await GetSeats();
-
-                    foreach (var seat in seatsToBooking)
-                    {
-
-                    
-                       
-                        var SeatXBooking = new SeatXBookingDtoRequest()
-                        {
-                            BookingId = newBookingId,
-                            SeatId = seat
-                        };
-
-                        await HttpClient.PostAsJsonAsync("api/SeatsXBookings", SeatXBooking);
-
-                        var seatStateChanged = new SeatDtoRequest()
-                        {
-                            SeatTypeId = 2
-
-                        };
-
-                    await HttpClient.PutAsJsonAsync($"api/Seats/PutBySeatType/{seat}", seatStateChanged);
-
-
-                    }
-
-
-
-
-                            
-             }
-
-
+                var newBookingId = await GenerateBooking(client); 
+                seatsToBooking = await GetSeats();
+                await GenerateBookingBySeats(seatsToBooking, newBookingId);
+            }
 
             var result = await Swal.FireAsync(new SweetAlertOptions
-                {
-                    Title = "Reserva generada correctamente. Puede visualizar su reserva en 'Mis Reservas' en el menú principal",
-                    Icon = SweetAlertIcon.Success,
-                });
+            {
+                Title = "Reserva generada correctamente. Puede visualizar su reserva en 'Mis Reservas' en el menú principal",
+                Icon = SweetAlertIcon.Success,
+            });
 
             if (result.IsConfirmed)
             {
@@ -436,10 +322,9 @@
 
 
         }
-            
 
-     }
 
+    }
 
 
     private async Task<ICollection<int>> GetSeats()
@@ -468,6 +353,72 @@
             return false;
         }
     }
+
+    public async Task<int> GenerateBooking(ClientResponseDto client)
+    {
+        var booking = new BookingDtoRequest()
+            {
+                ReservationDate = DateTime.Now,
+                BookingTypeId = 1,
+                ShowingId = Id,
+                ClientId = client.Id,
+                Total = totalCantidadAsientos
+
+            };
+
+        var response = await HttpClient.PostAsJsonAsync("api/Bookings", booking);
+        var newBookingId = 0;
+        if (response.IsSuccessStatusCode)
+        {
+
+            var bookingResponse = await response.Content.ReadFromJsonAsync<BookingDtoResponse>();
+
+            if (bookingResponse != null)
+            {
+                newBookingId = bookingResponse.Id;
+            }
+
+        }
+        else
+        {
+
+            Console.WriteLine($"Error al crear el booking. Código de estado: {response.StatusCode}");
+        }
+
+        return newBookingId;
+
+
+
+    }
+
+    public async Task GenerateBookingBySeats(ICollection<int> seatsToBooking, int newBookingId)
+    {
+        foreach (var seat in seatsToBooking)
+        {
+
+            var SeatXBooking = new SeatXBookingDtoRequest()
+            {
+                BookingId = newBookingId,
+                SeatId = seat
+            };
+
+            await HttpClient.PostAsJsonAsync("api/SeatsXBookings", SeatXBooking);
+
+            var seatStateChanged = new SeatDtoRequest()
+            {
+                SeatTypeId = 2
+            };
+
+            await HttpClient.PutAsJsonAsync($"api/Seats/PutBySeatType/{seat}", seatStateChanged);
+
+
+        }
+    }
+
+
+
+
+
 }
 
    

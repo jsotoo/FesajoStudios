@@ -26,6 +26,9 @@ namespace FesajoStudios.Shared.Request
 
         [JsonPropertyName("total")]
         public decimal Total { get; set; }
+        [JsonPropertyName("fecha")]
+        public DateTime Date {  get; set; }
+
 
     }
 }

@@ -94,19 +94,6 @@
           }
         }
       },
-      "ChartJs.Blazor.Fork/2.0.2": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "7.0.13",
-          "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "13.0.3"
-        },
-        "runtime": {
-          "lib/netstandard2.1/ChartJs.Blazor.dll": {
-            "assemblyVersion": "2.0.2.0",
-            "fileVersion": "2.0.2.0"
-          }
-        }
-      },
       "CurrieTechnologies.Razor.SweetAlert2/5.5.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "7.0.13",
@@ -280,7 +267,6 @@
           }
         }
       },
-      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Data.SqlClient/5.1.1": {
         "dependencies": {
           "Azure.Identity": "1.7.0",
@@ -910,7 +896,6 @@
           "Blazored.LocalStorage": "4.4.0",
           "Blazored.SessionStorage": "2.4.0",
           "Blazored.Toast": "4.1.0",
-          "ChartJs.Blazor.Fork": "2.0.2",
           "CurrieTechnologies.Razor.SweetAlert2": "5.5.0",
           "FesajoStudios.Shared": "1.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "7.0.13",
@@ -952,6 +937,14 @@
       "FesajoStudios.Shared/1.0.0": {
         "runtime": {
           "FesajoStudios.Shared.dll": {}
+        }
+      },
+      "ChartJs.Blazor/2.0.2.0": {
+        "runtime": {
+          "ChartJs.Blazor.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.2.0"
+          }
         }
       }
     }
@@ -996,13 +989,6 @@
       "sha512": "sha512-k12tFBnMMU67bPoBKLTuR2POcYOz02UtT8Lzyeu8fMv587nO8VaWqFfRMJ8Hxkb1SbxL8lY2WiK9tWAZ934khQ==",
       "path": "blazored.toast/4.1.0",
       "hashPath": "blazored.toast.4.1.0.nupkg.sha512"
-    },
-    "ChartJs.Blazor.Fork/2.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1aJR2uX3Al1OnWsTOIza2UV4oDZcmspOhliXQ2f9rpAOCuwT0BPbN0eFYT3Fzp5aWU9+9tfyhPlQO48UwpfKVQ==",
-      "path": "chartjs.blazor.fork/2.0.2",
-      "hashPath": "chartjs.blazor.fork.2.0.2.nupkg.sha512"
     },
     "CurrieTechnologies.Razor.SweetAlert2/5.5.0": {
       "type": "package",
@@ -1122,13 +1108,6 @@
       "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "path": "microsoft.bcl.asyncinterfaces/1.1.1",
       "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
-    },
-    "Microsoft.CSharp/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
-      "path": "microsoft.csharp/4.7.0",
-      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/5.1.1": {
       "type": "package",
@@ -1635,6 +1614,11 @@
     },
     "FesajoStudios.Shared/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChartJs.Blazor/2.0.2.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

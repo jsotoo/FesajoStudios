@@ -1,0 +1,44 @@
+﻿.cuadrado {
+    width: 60px;
+    height: 60px;
+    background-color: lightgreen;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .cuadrado.seleccionado {
+        background-color: red;
+        color: white;
+    }
+
+.cuadrado-ocupado {
+    width: 60px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rectangulo {
+    width: 1120px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px auto;
+    clear: both;
+}
+
+
+.column-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.columna {
+    width: 750px;
+    float: left;
+}

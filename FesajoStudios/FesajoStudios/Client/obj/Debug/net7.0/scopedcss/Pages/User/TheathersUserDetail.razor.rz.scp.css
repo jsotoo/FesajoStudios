@@ -1,0 +1,44 @@
+.cuadrado[b-pvbo4y13fd] {
+    width: 60px;
+    height: 60px;
+    background-color: lightgreen;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .cuadrado.seleccionado[b-pvbo4y13fd] {
+        background-color: red;
+        color: white;
+    }
+
+.cuadrado-ocupado[b-pvbo4y13fd] {
+    width: 60px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rectangulo[b-pvbo4y13fd] {
+    width: 1120px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px auto;
+    clear: both;
+}
+
+
+.column-container[b-pvbo4y13fd] {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.columna[b-pvbo4y13fd] {
+    width: 750px;
+    float: left;
+}

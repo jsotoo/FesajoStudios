@@ -47,7 +47,10 @@ namespace FesajoStudios.Server.Extensions
                         BookingType = bookingType.Description,
                         ReservationDate = booking.ReservationDate,
                         Showing = movie?.Title,
-                        movieImage = movie.UrlImage
+                        movieImage = movie.UrlImage,
+                        Total = booking.Total,
+                        Date = showing.StartDate
+                        
                     }).FirstOrDefault();
         }
 

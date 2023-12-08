@@ -20,11 +20,13 @@ namespace FesajoStudios.Shared.Reponse
         public string? Showing { get; set; }
         public int ClientId { get; set; }
         public string? Client { get; set;}
-
         public string? movieImage { get; set; }
-
         public int TheatherId { get; set; }
-
         public decimal Total { get; set; }
+
+        public DateTime Date { get; set; }
+
+
+
     }
 }
