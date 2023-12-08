@@ -20,10 +20,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/DashboardPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkUGFnZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MovieEdit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,10 +34,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ1BhZ2UucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherDetail.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherPage.razor]
@@ -99,6 +91,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJEZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-pa9un4dx3z
 
 [C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

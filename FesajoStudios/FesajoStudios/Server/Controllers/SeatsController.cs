@@ -136,6 +136,36 @@ namespace FesajoStudios.Server.Controllers
             }
         }
 
+        [HttpGet("GetSeatsByTheatherId/{id:int}")]
+        [ActionName("GetSeatsByTheatherId")]
+        public async Task<IActionResult> GetSeatsByTheatherId(int id)
+        {
+            try
+            {
+                var seats = await _repository.ListAsync();
+                var seatType = await _repositorySeatType.ListAsync();
+                var showing = await _repositoryShowing.ListAsync();
+                var movie = await _repositoryMovie.ListAsync();
+                var theather = await _repositoryTheather.ListAsync();
+
+                var seatDto = seats.GetSeatsByTheatherIdConvertToDto(seatType, theather, showing, movie, id);
+
+                if (seatDto == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(seatDto);
+            }
+            catch (Exception ex)
+            {
+                // Loguear la excepción o devolver un resultado apropiado.
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
+        }
+
+
+
 
         [HttpPut("PutBySeatType/{id:int}")]
         [ActionName("PutBySeatType")]
@@ -210,7 +240,12 @@ namespace FesajoStudios.Server.Controllers
             return Ok();
         }
 
-
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _repository.DeleteAsync(id);
+            return Ok();
+        }
 
 
 

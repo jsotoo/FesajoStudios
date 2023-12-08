@@ -1,0 +1,61 @@
+﻿.cuadrado {
+    width: 60px;
+    height: 60px;
+    background-color: lightgreen;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .cuadrado.seleccionado {
+        background-color: red;
+        color: white;
+    }
+
+.cuadrado-ocupado {
+    width: 60px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rectangulo {
+    width: 1120px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px auto;
+    clear: both;
+}
+
+
+.column-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.columna {
+    width: 750px;
+    float: left;
+}
+
+.progress-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco difuminado */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el overlay */
+}
+
+.progress-bar-overlay {
+    width: 100%;
+}
+

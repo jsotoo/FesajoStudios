@@ -1,3 +1,65 @@
+/* /Pages/Admin/TheatherDetail.razor.rz.scp.css */
+.cuadrado[b-pa9un4dx3z] {
+    width: 60px;
+    height: 60px;
+    background-color: lightgreen;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .cuadrado.seleccionado[b-pa9un4dx3z] {
+        background-color: red;
+        color: white;
+    }
+
+.cuadrado-ocupado[b-pa9un4dx3z] {
+    width: 60px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rectangulo[b-pa9un4dx3z] {
+    width: 1120px;
+    height: 60px;
+    background-color: gray;
+    margin: 5px auto;
+    clear: both;
+}
+
+
+.column-container[b-pa9un4dx3z] {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.columna[b-pa9un4dx3z] {
+    width: 750px;
+    float: left;
+}
+
+.progress-overlay[b-pa9un4dx3z] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco difuminado */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el overlay */
+}
+
+.progress-bar-overlay[b-pa9un4dx3z] {
+    width: 100%;
+}
+
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-zhgg6m1r2q] {
     position: relative;

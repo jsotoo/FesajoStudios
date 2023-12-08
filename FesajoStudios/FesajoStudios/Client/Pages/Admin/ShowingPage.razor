@@ -1,4 +1,5 @@
 ﻿@page "/showings"
+@using System.Globalization;
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 @inject SweetAlertService Swal
@@ -31,7 +32,9 @@
                 <tr class="table-primary">
                     <th>Id</th>
                     <th>Fecha de inicio</th>
+                    <th>Hora Inicio</th>
                     <th>Fecha fin</th>
+                    <th>Hora fin</th>
                     <th>Pelicula</th>
                     <th>Sala</th>
                     <th>Acciones</th>
@@ -42,8 +45,10 @@
                 {
                     <tr>
                             <td>@item.Id</td>
-                            <td>@item.StartDate</td>
-                            <td>@item.EndDate</td>
+                            <td>@item.StartDate.ToString("d", new CultureInfo("es-MX"))</td>
+                            <td>@item.StartDate.ToString("t", new CultureInfo("es-MX"))</td>
+                            <td>@item.EndDate.ToString("d", new CultureInfo("es-MX"))</td>
+                            <td>@item.EndDate.ToString("t", new CultureInfo("es-MX"))</td>
                             <td>@item.Movie</td>
                             <td>@item.Theather</td>
                         <td> 
@@ -61,7 +66,7 @@
 
 
 
-<CinemaModal ShowModal="@mostrarModal" TitleModal="Creación de la función">
+<CinemaModal ShowModal="@mostrarModal" TitleModal="Creación / Edición de la función">
     <EditForm Model="Showing" OnValidSubmit="CreateEdit">
 
         <DataAnnotationsValidator />
@@ -144,6 +149,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+      
         await Load();
     }
 
@@ -210,9 +216,6 @@
             };
 
             await InicializarListas();
-
-            // Showing.StartDate = DateTime.Now;
-            // Showing.EndDate = DateTime.Now;
 
             AbrirModal();
         }
@@ -329,6 +332,9 @@
 
             };
         await HttpClient.PostAsJsonAsync("api/Tickets", ticketStudent);
-
     }
+
+
+ 
+
 }

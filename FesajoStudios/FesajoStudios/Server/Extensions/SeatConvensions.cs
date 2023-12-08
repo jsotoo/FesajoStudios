@@ -112,7 +112,30 @@ namespace FesajoStudios.Server.Extensions
                     }).ToList();
 
         }
+        public static IEnumerable<SeatDtoResponse> GetSeatsByTheatherIdConvertToDto(this IEnumerable<Seat> seats,
+                                                                                            IEnumerable<SeatType> seatsType,
+                                                                                            IEnumerable<Theather> theathers,
+                                                                                            IEnumerable<Showing> showings,
+                                                                                            IEnumerable<Movie> movies, int id)
+        {
+            return (from seat in seats
+                    join seatType in seatsType on seat.SeatTypeId equals seatType.Id
+                    join theather in theathers on seat.TheatherId equals theather.Id
+                    join showing in showings on seat.ShowingId equals showing.Id
+                    join movie in movies on showing.MovieId equals movie.Id
+                    where seat.TheatherId == id
+                    select new SeatDtoResponse
+                    {
+                        Id = seat.Id,
+                        SeatCode = seat.SeatCode,
+                        SeatTypeId = seat.SeatTypeId,
+                        ShowingId = showing.Id,
+                        SeatType = seatType.Description,
+                        Showing = movie.Title
 
+                    }).ToList();
 
+        }
+        
     }
 }

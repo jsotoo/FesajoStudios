@@ -1762,3 +1762,4 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\bin\Debug\net7.0\wwwroot\_framework\ChartJs.Blazor.dll.gz
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\bin\Debug\net7.0\ChartJs.Blazor.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\build-gz\kmM7FQZg.gz
+C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\obj\Debug\net7.0\scopedcss\Pages\Admin\TheatherDetail.razor.rz.scp.css

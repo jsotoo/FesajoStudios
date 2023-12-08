@@ -62,10 +62,6 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
-            "ChartJs.Blazor.Fork": {
-              "target": "Package",
-              "version": "[2.0.2, )"
-            },
             "CurrieTechnologies.Razor.SweetAlert2": {
               "target": "Package",
               "version": "[5.5.0, )"
