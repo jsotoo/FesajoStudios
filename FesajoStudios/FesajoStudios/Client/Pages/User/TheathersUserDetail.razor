@@ -6,25 +6,6 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject SweetAlertService Swal 
 
-
-<div style="text-align: right;">
-    <div style="display: inline-block;">
-        <div class="cuadrado" style="background-color: lightgreen; width: 20px; height: 20px; text-align:right;"></div>
-        <p>Asiento disponible</p>
-    </div>
-
-    <div style="display: inline-block;">
-        <div class="cuadrado" style="background-color: red; width: 20px; height: 20px; text-align:right;"></div>
-        <p style="margin-right:10px">Asiento seleccionado</p>
-    </div>
-
-    <div style="display: inline-block;">
-        <div class="cuadrado" style="background-color: gray; width: 20px; height: 20px; text-align:right;"></div>
-        <p>Asiento ocupado</p>
-    </div>
-</div>
-
-
 <br />
 
 <div class="container">
@@ -115,7 +96,22 @@
 
 }
 
+<div style="text-align: right;">
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: lightgreen; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento disponible</p>
+    </div>
 
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: red; width: 20px; height: 20px; text-align:right;"></div>
+        <p style="margin-right:10px">Asiento seleccionado</p>
+    </div>
+
+    <div style="display: inline-block;">
+        <div class="cuadrado" style="background-color: gray; width: 20px; height: 20px; text-align:right;"></div>
+        <p>Asiento ocupado</p>
+    </div>
+</div>
 
 <br />
 <div class="rectangulo"></div>
@@ -221,13 +217,29 @@
         {
 
             var response = await HttpClient.GetFromJsonAsync<List<SeatDtoResponse>>($"api/Seats/GetSeatsByShowingId/{Id}");
-            if (response != null)
+            if (response != null && response.Count > 0)
             {
                 Seats = response;
             }
+            else
+            {
+                var result = await Swal.FireAsync(new SweetAlertOptions
+                    {
+                        Title = "El administrador del sistema, está verificando esta sala. Por favor, intente más tarde",
+                        Icon = SweetAlertIcon.Success,
+                    });
+                if (result.IsConfirmed)
+                {
+
+                    NavigationManager.NavigateTo("/MoviesList");
+                }
+
+
+            }
+
 
             var responseTicket = await HttpClient.GetFromJsonAsync<List<TicketDtoResponse>>($"api/Tickets/GetTicketsByShowingId/{Id}");
-            if (responseTicket != null)
+            if (responseTicket != null )
             {
                 Tickets = responseTicket;
             }

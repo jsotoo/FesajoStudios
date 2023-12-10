@@ -15,7 +15,16 @@ namespace FesajoStudios.DataAccess.Configurations
         {
             builder.Property(x => x.Name)
                 .HasMaxLength(50);
-          
+
+            builder.HasData(new List<Theather>
+            {
+                new() { Id = 1, Name = "Sala 1", Capacity= 100  },
+                new() { Id = 2, Name = "Sala 2", Capacity= 100 },
+                new() { Id = 3, Name = "Sala 3", Capacity = 100 },
+                new() { Id = 4, Name = "Sala 4", Capacity = 100 },
+            });
+
+
         }
     }
 }

@@ -53,14 +53,24 @@
                         <tbody>
                             @foreach (var item in Showings)
                             {
-                                <tr>
+                                <tr style="@(item.StartDate < DateTime.Now ? "background-color: #FFA07A;" : "")">
                                     <td>@item.StartDate.ToString("g", new CultureInfo("es-MX"))</td>
                                     <td>@item.EndDate.ToString("g", new CultureInfo("es-MX"))</td>
                                     <td>@item.Theather</td>
-                                    <td><button class="btn btn-secondary" @onclick="() => ShowTheather(item.Id)">Ver detalle</button></td>
+                                    <td>
+                                        @if (item.StartDate >= DateTime.Now)
+                                        {
+                                            <button class="btn btn-secondary" @onclick="() => ShowTheather(item.Id)">Ver detalle</button>
+                                        }
+                                        else
+                                        {
+                                            <span style="color: red;">Fecha vencida</span>
+                                        }
+                                    </td>
                                 </tr>
                             }
                         </tbody>
+
                     </table>
 
                 }

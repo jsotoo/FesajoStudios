@@ -13,11 +13,11 @@ namespace FesajoStudios.Server.Extensions
             )?.ToClientResponseDto();
         }
 
-        public static ClientResponseDto ToClientResponseDto(this Entities.Client client)
+        public static ClientResponseDto? ToClientResponseDto(this Entities.Client client)
         {
             if (client == null)
             {
-                return null; // o lanza una excepción, dependiendo de tus necesidades
+                return null; 
             }
 
             return new ClientResponseDto

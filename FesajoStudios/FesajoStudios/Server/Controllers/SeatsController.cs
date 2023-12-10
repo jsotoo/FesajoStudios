@@ -71,7 +71,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loguear la excepción o devolver un resultado apropiado.
+          
                 return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
@@ -102,7 +102,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loguear la excepción o devolver un resultado apropiado.
+
                 return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
@@ -131,7 +131,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loguear la excepción o devolver un resultado apropiado.
+     
                 return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
@@ -159,7 +159,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loguear la excepción o devolver un resultado apropiado.
+  
                 return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
@@ -180,7 +180,7 @@ namespace FesajoStudios.Server.Controllers
                     return NotFound();
                 }
 
-                // Actualiza propiedades que no son clave.
+       
                 registro.SeatTypeId = request.SeatTypeId;
 
 
@@ -190,7 +190,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loggea la excepción o devuelve información detallada en la respuesta.
+               
                 return StatusCode(500, $"Error interno del servidor: {ex.Message} \n\nInner Exception: {ex.InnerException?.Message}");
             }
         }
@@ -206,9 +206,9 @@ namespace FesajoStudios.Server.Controllers
                     return NotFound();
                 }
 
-                // Actualiza propiedades que no son clave.
+      
                 registro.SeatTypeId = request.SeatTypeId;
-                //registro.ShowingId = request.ShowingId;
+                registro.ShowingId = request.ShowingId;
                 registro.SeatCode = request.SeatCode;
 
                 await _repository.UpdateAsyncEntity(registro);
@@ -217,7 +217,7 @@ namespace FesajoStudios.Server.Controllers
             }
             catch (Exception ex)
             {
-                // Loggea la excepción o devuelve información detallada en la respuesta.
+              
                 return StatusCode(500, $"Error interno del servidor: {ex.Message} \n\nInner Exception: {ex.InnerException?.Message}");
             }
         }

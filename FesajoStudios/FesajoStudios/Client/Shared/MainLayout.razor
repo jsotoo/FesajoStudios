@@ -58,7 +58,7 @@
     </main>
 </div>
 @code {
-    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+    [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; } = default!;
     private bool IsAuthenticated { get; set; }
 
     protected override async Task OnInitializedAsync()
