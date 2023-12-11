@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UDBkZrfWB/DYMNa701oOSKghJ1GlLPpmDudXmk5yQHc=",
+  "Hash": "h6+VJogCZCbAcnNb/ZjxL21efUA15nwYWayBX1mhO4s=",
   "Source": "FesajoStudios.Server",
   "BasePath": "_content/FesajoStudios.Server",
   "Mode": "Default",
@@ -8347,6 +8347,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Saw X.png"
+    },
+    {
+      "Identity": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\sinimagen.jpg",
+      "SourceId": "FesajoStudios.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\",
+      "BasePath": "_content/FesajoStudios.Server",
+      "RelativePath": "uploads/sinimagen.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\sinimagen.jpg"
     },
     {
       "Identity": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\wwwroot\\uploads\\sow.jpg",

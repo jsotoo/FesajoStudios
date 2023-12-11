@@ -54,7 +54,14 @@
                         <td class="text-center align-middle">@item.Genre</td>
                         <td class="text-center align-middle">@item.ReleaseDate</td>
                         <td class="text-center align-middle">
-                            <img src="@item.UrlImage" alt="@item.Title" style="width: 130px; border-radius: 5px; object-fit: cover;" />
+                            @if (!string.IsNullOrEmpty(item.UrlImage))
+                            {
+                                <img src="@item.UrlImage" alt="@item.Title" style="width: 130px; border-radius: 5px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <img src="/uploads/sinimagen.jpg" alt="Sin imagen" style="width: 130px; border-radius: 5px; object-fit: cover;" />
+                            }
                         </td>
                         <td class="text-center align-middle">
                             <button class="btn btn-secondary me-2" @onclick="() => Edit(item.Id)"><i class="bi bi-pencil"></i></button>
