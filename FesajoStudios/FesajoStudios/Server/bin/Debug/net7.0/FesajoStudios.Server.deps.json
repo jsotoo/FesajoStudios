@@ -938,14 +938,6 @@
         "runtime": {
           "FesajoStudios.Shared.dll": {}
         }
-      },
-      "ChartJs.Blazor/2.0.2.0": {
-        "runtime": {
-          "ChartJs.Blazor.dll": {
-            "assemblyVersion": "2.0.2.0",
-            "fileVersion": "2.0.2.0"
-          }
-        }
       }
     }
   },
@@ -1614,11 +1606,6 @@
     },
     "FesajoStudios.Shared/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ChartJs.Blazor/2.0.2.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

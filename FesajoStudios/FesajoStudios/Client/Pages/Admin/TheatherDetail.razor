@@ -102,16 +102,25 @@
             <option value="">-Seleccione la función</option>
             @foreach (var showing in ShowingsByTheather)
             {
-                <option value="@showing.Id">@($"{showing.Movie} | {showing.StartDate} - {showing.EndDate}")</option>
+
+
+                if (showing.StartDate > DateTime.Now || showing.EndDate > DateTime.Now)
+                {
+                    <option value="@showing.Id">@($"{showing.Movie} | {showing.StartDate} - {showing.EndDate}")</option>
+                }
+                else
+                {
+                    <option value="@showing.Id" disabled>@($"{showing.Movie} | {showing.StartDate} - {showing.EndDate} (Fecha pasada)")</option>
+                }
             }
         </InputSelect>
     </div>
 }
 else
 {
-  
-    <p>No hay funciones disponibles</p>
+    <p class="alert alert-info">No hay funciones disponibles</p>
 }
+
 
 @{
 
