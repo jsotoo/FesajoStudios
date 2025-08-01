@@ -20,3 +20,15 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Shared\
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\refint\FesajoStudios.Shared.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.pdb
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\ref\FesajoStudios.Shared.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\bin\Debug\net6.0\FesajoStudios.Shared.deps.json
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\bin\Debug\net6.0\FesajoStudios.Shared.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\bin\Debug\net6.0\FesajoStudios.Shared.pdb
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.AssemblyInfoInputs.cache
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.AssemblyInfo.cs
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.csproj.CoreCompileInputs.cache
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.sourcelink.json
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\refint\FesajoStudios.Shared.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\FesajoStudios.Shared.pdb
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Shared\obj\Debug\net6.0\ref\FesajoStudios.Shared.dll

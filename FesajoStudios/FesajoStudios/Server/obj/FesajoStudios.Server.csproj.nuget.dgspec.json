@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj": {}
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj",
         "projectName": "FesajoStudios.DataAccess",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +29,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
               }
             }
           }
@@ -47,6 +42,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -82,26 +82,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj",
         "projectName": "FesajoStudios.Entities",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -122,6 +117,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -143,26 +143,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj",
         "projectName": "FesajoStudios.Repositories",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -177,11 +172,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
               }
             }
           }
@@ -190,6 +185,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -217,26 +217,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj",
         "projectName": "FesajoStudios.Client",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -251,8 +246,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
               }
             }
           }
@@ -261,6 +256,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -296,6 +296,24 @@
               "target": "Package",
               "version": "[7.0.13, )"
             },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23401.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23401.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )",
+              "autoReferenced": true
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -319,7 +337,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.14, 7.0.14]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -327,7 +345,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -336,22 +354,17 @@
         }
       }
     },
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj",
         "projectName": "FesajoStudios.Server",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Server\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\FesajoStudios.Server.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -366,20 +379,20 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Entities\\FesajoStudios.Entities.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.Repositories\\FesajoStudios.Repositories.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Client\\FesajoStudios.Client.csproj"
               },
-              "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
-                "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
+              "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
+                "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj"
               }
             }
           }
@@ -388,6 +401,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -444,26 +462,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
+    "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
         "projectName": "FesajoStudios.Shared",
-        "projectPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
-        "packagesPath": "C:\\Users\\JONATHAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
+        "packagesPath": "C:\\Users\\natha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\JONATHAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\natha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -484,6 +497,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -500,26 +518,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.25, 6.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

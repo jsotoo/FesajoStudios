@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UMTVp9PP6HhJLP5DcAmC0XBemG5sxW/cMJS1Kshv9pA2JwTmCkPQZ8v3W5+vpcgrluNgskTD/zN7i05ljYXQDg==",
+  "dgSpecHash": "mrMrCYo+3kk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\JONATHAN\\Desktop\\Fesajo a verificar\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\JONATHAN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Shared\\FesajoStudios.Shared.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

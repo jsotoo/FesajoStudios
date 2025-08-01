@@ -11,6 +11,7 @@ namespace FesajoStudios.DataAccess
 {
     public static class UserDataSeeder
     {
+        
         public static async Task Seed(IServiceProvider service)
         {
             // UserManager (Repositorio de Usuarios)

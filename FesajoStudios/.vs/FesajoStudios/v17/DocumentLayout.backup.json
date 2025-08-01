@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A11A7133-3AA8-4864-81F9-C7B852468560}|FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj|c:\\users\\natha\\onedrive\\escritorio\\.net projects\\proyecto cine\\fesajostudios\\fesajostudios\\fesajostudios.dataaccess\\userdataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A11A7133-3AA8-4864-81F9-C7B852468560}|FesajoStudios.DataAccess\\FesajoStudios.DataAccess.csproj|solutionrelative:fesajostudios.dataaccess\\userdataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|c:\\users\\natha\\onedrive\\escritorio\\.net projects\\proyecto cine\\fesajostudios\\fesajostudios\\fesajostudios\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|solutionrelative:fesajostudios\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|c:\\users\\natha\\onedrive\\escritorio\\.net projects\\proyecto cine\\fesajostudios\\fesajostudios\\fesajostudios\\server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|solutionrelative:fesajostudios\\server\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|c:\\users\\natha\\onedrive\\escritorio\\.net projects\\proyecto cine\\fesajostudios\\fesajostudios\\fesajostudios\\server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{461BA387-B59A-4CB7-89ED-B36D350FB551}|FesajoStudios\\Server\\FesajoStudios.Server.csproj|solutionrelative:fesajostudios\\server\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserDataSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\UserDataSeeder.cs",
+              "RelativeDocumentMoniker": "FesajoStudios.DataAccess\\UserDataSeeder.cs",
+              "ToolTip": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios.DataAccess\\UserDataSeeder.cs",
+              "RelativeToolTip": "FesajoStudios.DataAccess\\UserDataSeeder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:22:15.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "FesajoStudios\\Server\\Program.cs",
+              "ToolTip": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\Program.cs",
+              "RelativeToolTip": "FesajoStudios\\Server\\Program.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAI8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T16:29:07.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "FesajoStudios\\Server\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\appsettings.Development.json",
+              "RelativeToolTip": "FesajoStudios\\Server\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-11T16:07:33.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\Dockerfile",
+              "RelativeDocumentMoniker": "FesajoStudios\\Server\\Dockerfile",
+              "ToolTip": "C:\\Users\\natha\\OneDrive\\Escritorio\\.Net Projects\\Proyecto Cine\\FesajoStudios\\FesajoStudios\\FesajoStudios\\Server\\Dockerfile",
+              "RelativeToolTip": "FesajoStudios\\Server\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-11T16:06:36.988Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

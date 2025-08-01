@@ -1,4 +1,8 @@
 is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net7.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -9,97 +13,99 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = FesajoStudios.Client
 build_property.RootNamespace = FesajoStudios.Client
-build_property.ProjectDir = C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client\
+build_property.ProjectDir = C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios\Client
+build_property.MSBuildProjectDirectory = C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/App.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MovieEdit.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/MovieEdit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesCreate.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesCreate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVzQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesPage.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/MoviesPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW92aWVzUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingPage.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/ShowingPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvd2luZ1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherPage.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Auth/Login.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Auth/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Auth/Register.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Auth/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Index.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/BookingsUserDetail.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/BookingsUserDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxCb29raW5nc1VzZXJEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/BookingsUserList.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/BookingsUserList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxCb29raW5nc1VzZXJMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserDetail.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyRGV0YWlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserList.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserPage.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/MoviesUserPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxNb3ZpZXNVc2VyUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/CinemaModal.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Shared/CinemaModal.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENpbmVtYU1vZGFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MoviesConfig.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Shared/MoviesConfig.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1vdmllc0NvbmZpZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/SurveyPrompt.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/_Imports.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherDetail.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/Admin/TheatherDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGhlYXRoZXJEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pa9un4dx3z
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Pages/User/TheathersUserDetail.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Pages/User/TheathersUserDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxUaGVhdGhlcnNVc2VyRGV0YWlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-pvbo4y13fd
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/MainLayout.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zhgg6m1r2q
 
-[C:/Users/JONATHAN/Desktop/Fesajo a verificar/FesajoStudios/FesajoStudios/Client/Shared/NavMenu.razor]
+[C:/Users/natha/OneDrive/Escritorio/.Net Projects/Proyecto Cine/FesajoStudios/FesajoStudios/FesajoStudios/Client/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-velbsitj0a

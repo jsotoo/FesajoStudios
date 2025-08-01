@@ -134,8 +134,13 @@ app.MapControllers();
 app.MapFallbackToFile("index.html");
 app.UseCors("AllowAny");
 
+
+
+
 using (var scope = app.Services.CreateScope())
 {
+    var context = scope.ServiceProvider.GetRequiredService<FesajoStudiosDbContext>();
+    context.Database.Migrate();
     await UserDataSeeder.Seed(scope.ServiceProvider);
 }
 

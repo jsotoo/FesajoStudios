@@ -20,3 +20,15 @@ C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios.Entitie
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\refint\FesajoStudios.Entities.dll
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.pdb
 C:\Users\JONATHAN\Desktop\Fesajo a verificar\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\ref\FesajoStudios.Entities.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\bin\Debug\net7.0\FesajoStudios.Entities.deps.json
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\bin\Debug\net7.0\FesajoStudios.Entities.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\bin\Debug\net7.0\FesajoStudios.Entities.pdb
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.AssemblyInfoInputs.cache
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.AssemblyInfo.cs
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.csproj.CoreCompileInputs.cache
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.sourcelink.json
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\refint\FesajoStudios.Entities.dll
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\FesajoStudios.Entities.pdb
+C:\Users\natha\OneDrive\Escritorio\.Net Projects\Proyecto Cine\FesajoStudios\FesajoStudios\FesajoStudios.Entities\obj\Debug\net7.0\ref\FesajoStudios.Entities.dll

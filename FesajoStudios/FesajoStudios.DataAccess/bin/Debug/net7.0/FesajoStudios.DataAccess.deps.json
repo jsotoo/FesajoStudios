@@ -613,12 +613,18 @@
       },
       "FesajoStudios.Entities/1.0.0": {
         "runtime": {
-          "FesajoStudios.Entities.dll": {}
+          "FesajoStudios.Entities.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "FesajoStudios.Shared/1.0.0": {
         "runtime": {
-          "FesajoStudios.Shared.dll": {}
+          "FesajoStudios.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
